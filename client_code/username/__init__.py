@@ -3,7 +3,7 @@ from anvil import *
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 import anvil.server
-from ..home import home
+from ..wordbudz import wordbudz
 
 
 class username(usernameTemplate):
@@ -13,7 +13,7 @@ class username(usernameTemplate):
     self.load = anvil.server.call('test_cookie')
     if self.load != 'not found':
       self.clear()
-      self.add_component(home(), full_width_row=True)
+      self.add_component(wordbudz(), full_width_row=True)
 
 
     # Any code you write here will run before the form opens.
@@ -24,7 +24,7 @@ class username(usernameTemplate):
     email = self.email.text
     ans = anvil.server.call('generate_username', username, email)
     if ans != 'void':
-      open_form('home')
+      open_form('wordbudz')
     if ans == 'void':
       n = Notification("Please choose another username!")
       n.show()
