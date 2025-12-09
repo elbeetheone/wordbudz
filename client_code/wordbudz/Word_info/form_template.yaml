@@ -1,0 +1,152 @@
+components:
+- components:
+  - layout_properties: {grid_position: 'OPWENM,QLJCRD'}
+    name: label_1
+    properties: {align: center, bold: true, font_size: 45, foreground: 'theme:Primary 500', spacing_above: none, text: Find Your Word a Bud}
+    type: Label
+  - layout_properties: {grid_position: 'PNRBWE,IQUYTL'}
+    name: label_8
+    properties: {align: center, bold: true, foreground: 'theme:Primary 500', spacing_above: none, spacing_below: none, text: 'Improve Word Association, Word Recall & Learn New Words.'}
+    type: Label
+  layout_properties: {grid_position: 'UZIYDF,MDHHDM'}
+  name: card_1
+  properties: {background: 'theme:Gray 100', role: message}
+  type: ColumnPanel
+- components:
+  - components:
+    - layout_properties: {grid_position: 'MDAQBR,LIGIYL'}
+      name: label_11_copy
+      properties: {align: center, background: '#c70000', bold: true, font_size: null, foreground: 'theme:White', icon: 'fa:bullhorn', role: message2, text: 'First time here? Test your mic by clicking the button below and enable it if prompted.'}
+      type: Label
+    - event_bindings: {click: test_click}
+      layout_properties: {grid_position: 'MKVCXU,USFCBR'}
+      name: test
+      properties: {font_size: null, icon: 'fa:microphone', role: primary-color, text: test mic}
+      type: Button
+    - layout_properties: {grid_position: 'IXMJZC,WBRTQA'}
+      name: speak
+      properties: {align: center, bold: true, foreground: '#c70000', text: Say 'Hello', visible: false}
+      type: Label
+    layout_properties: {grid_position: 'RTBTMT,APVAFT'}
+    name: card_5
+    properties: {background: 'theme:Gray 300', role: message}
+    type: ColumnPanel
+  - layout_properties: {grid_position: 'ZXUPVE,LNQHYX'}
+    name: label_10
+    properties: {align: center, bold: true, font_size: 20, foreground: 'theme:Primary 500', spacing_above: none, spacing_below: none, text: How to Play, underline: true}
+    type: Label
+  - layout_properties: {grid_position: 'ANIYUQ,IMDNSP'}
+    name: label_3
+    properties:
+      align: center
+      bold: true
+      font_size: null
+      foreground: theme:Primary 500
+      text: "A \"bud\" is a term that relates to the given word. It could be a synonym, an antonym, or an associated word. \nFor example:"
+    type: Label
+  - layout_properties: {grid_position: 'RMYQUK,EMKFQI'}
+    name: label_6
+    properties: {align: center, bold: true, font_size: null, foreground: 'theme:Primary 500', italic: true, text: Bread is strongly associated with Butter...}
+    type: Label
+  - components:
+    - layout_properties: {grid_position: 'JPVMHI,BTYMLK'}
+      name: label_4
+      properties: {align: center, bold: true, font_size: 45, foreground: '#E0F5FF', text: Bread}
+      type: Label
+    layout_properties: {grid_position: 'SSCHPX,WLCTKB'}
+    name: card_3
+    properties: {background: 'theme:Primary 500', role: message}
+    type: ColumnPanel
+  - layout_properties: {grid_position: 'SSCHPX,LJEGYF'}
+    name: label_2
+    properties: {align: center, bold: true, font_size: 35, foreground: '#c70000', spacing_above: large, text: '0.87'}
+    type: Label
+  - components:
+    - layout_properties: {grid_position: 'IPXFSG,ZFGBRH'}
+      name: label_5
+      properties: {align: center, bold: true, font_size: 45, text: Butter}
+      type: Label
+    layout_properties: {grid_position: 'SSCHPX,TCMCZX'}
+    name: card_4
+    properties: {background: '#344D7C', role: message}
+    type: ColumnPanel
+  - layout_properties: {grid_position: 'PJDHJA,NMGCTI'}
+    name: label_6_copy
+    properties: {align: center, bold: true, font_size: null, foreground: 'theme:Primary 500', italic: true, text: 'Bread is also associated with Knife, but slightly less so...'}
+    type: Label
+  - components:
+    - layout_properties: {grid_position: 'JPVMHI,BTYMLK'}
+      name: label_4_copy
+      properties: {align: center, bold: true, font_size: 45, foreground: '#E0F5FF', text: Bread}
+      type: Label
+    layout_properties: {grid_position: 'SALDLQ,PWSXFB'}
+    name: card_3_copy
+    properties: {background: 'theme:Primary 500', role: message}
+    type: ColumnPanel
+  - layout_properties: {grid_position: 'SALDLQ,YZEKYV'}
+    name: label_2_copy
+    properties: {align: center, bold: true, font_size: 35, foreground: '#c70000', spacing_above: large, text: '0.49'}
+    type: Label
+  - components:
+    - layout_properties: {grid_position: 'IPXFSG,ZFGBRH'}
+      name: label_5_copy
+      properties: {align: center, bold: true, font_size: 45, text: Knife}
+      type: Label
+    layout_properties: {grid_position: 'SALDLQ,FKZSYB'}
+    name: card_4_copy
+    properties: {background: '#344D7C', role: message}
+    type: ColumnPanel
+  - layout_properties: {grid_position: 'ECCPED,REKTXX'}
+    name: label_7
+    properties: {align: center, bold: true, font_size: null, foreground: 'theme:Primary 500', italic: true, text: But it is weakly associated with Storm...}
+    type: Label
+  - components:
+    - layout_properties: {grid_position: 'JPVMHI,BTYMLK'}
+      name: label_4_copy_copy
+      properties: {align: center, bold: true, font_size: 45, foreground: '#E0F5FF', text: Bread}
+      type: Label
+    layout_properties: {grid_position: 'ERVUCN,JKNSCE'}
+    name: card_3_copy_copy
+    properties: {background: 'theme:Primary 500', role: message}
+    type: ColumnPanel
+  - layout_properties: {grid_position: 'ERVUCN,ZCHCGG'}
+    name: label_2_copy_copy
+    properties: {align: center, bold: true, font_size: 35, foreground: '#c70000', spacing_above: large, text: '0.02'}
+    type: Label
+  - components:
+    - layout_properties: {grid_position: 'IPXFSG,ZFGBRH'}
+      name: label_5_copy_copy
+      properties: {align: center, bold: true, font_size: 45, text: Storm}
+      type: Label
+    layout_properties: {grid_position: 'ERVUCN,CDAEAY'}
+    name: card_4_copy_copy
+    properties: {background: '#344D7C', role: message}
+    type: ColumnPanel
+  - layout_properties: {grid_position: 'BRXLSH,KXCBYQ'}
+    name: label_9
+    properties:
+      align: center
+      bold: true
+      font_size: null
+      foreground: theme:Primary 500
+      text: |-
+        Click 'begin' on the game page.
+        You have 5 seconds to think of a bud to the word provided.
+         Say it once prompted to 'speak'.
+        Remember to e-nun-ci-ate.
+        Maximum total score is 5.0 points.
+        Plurals and adverbs of the given word are not allowed.
+        Compete in our Daily Leaderboard, boost your vocabulary and challenge your mind!
+    type: Label
+  - components: []
+    event_bindings: {click: link_1_click}
+    layout_properties: {grid_position: 'GCQMBI,STWSCT'}
+    name: link_1
+    properties: {align: center, bold: true, font_size: null, text: Watch Tutorial, underline: true}
+    type: Link
+  layout_properties: {grid_position: 'YTVLDG,KIPSLH'}
+  name: card_2
+  properties: {background: 'theme:Gray 100', col_widths: '{"WLCTKB":25,"LJEGYF":10,"TCMCZX":25,"YZEKYV":10,"PWSXFB":25,"FKZSYB":25,"JKNSCE":25,"ZCHCGG":10,"CDAEAY":25}', role: message}
+  type: ColumnPanel
+container: {type: ColumnPanel}
+is_package: true

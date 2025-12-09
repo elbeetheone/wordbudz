@@ -1,0 +1,159 @@
+components:
+- components:
+  - components:
+    - layout_properties: {grid_position: 'LVZAJL,SWIQRG'}
+      name: image_1
+      properties: {background: '', height: 172, role: message, source: _/theme/speecheazi-high-resolution-logo-transparent.png}
+      type: Image
+    - components:
+      - layout_properties: {grid_position: 'RTHFLU,JJWVOH'}
+        name: label_1
+        properties: {align: center, bold: true, font_size: 30, foreground: 'theme:Primary 500', spacing_above: none, spacing_below: medium}
+        type: Label
+      - layout_properties: {grid_position: 'OFXUXA,NVVCML'}
+        name: date
+        properties: {align: center, background: 'theme:Primary 700', bold: true, font_size: 12, foreground: 'theme:White', icon: 'fa:calendar', role: message2, spacing_above: none, spacing_below: none}
+        type: Label
+      layout_properties: {grid_position: 'WDGXVF,HJCCFQ'}
+      name: card_2_copy_3
+      properties: {background: 'theme:Gray 50', role: message, spacing_above: medium, spacing_below: medium, wrap_on: never}
+      type: ColumnPanel
+    - layout_properties: {grid_position: 'TMCCPR,KCWVFR'}
+      name: spacer_2
+      properties: {height: 28}
+      type: Spacer
+    layout_properties: {grid_position: 'LQLBIA,FACDSY'}
+    name: card_3
+    properties: {background: 'theme:Gray 200', role: message}
+    type: ColumnPanel
+  - components:
+    - components:
+      - components:
+        - layout_properties: {grid_position: 'VACPSN,HPQDHC'}
+          name: label_3
+          properties:
+            align: center
+            bold: true
+            font_size: 12
+            foreground: '#E0F5FF'
+            icon: ''
+            icon_align: right_edge
+            spacing_above: none
+            spacing_below: none
+            text: |
+              🗣️ Improve Retention & Master Impromptu Speech Making ! 🎤
+          type: Label
+        - event_bindings: {click: play_click}
+          layout_properties: {grid_position: 'SZVIPZ,QKYCVS'}
+          name: play
+          properties: {background: '#344D7C', bold: true, font_size: 25, foreground: '#E0F5FF', icon: 'fa:play-circle-o', spacing_above: none, spacing_below: none, text: Play}
+          type: Button
+        - layout_properties: {grid_position: 'JNVBKJ,FPSDHO'}
+          name: label_2
+          properties: {align: center, bold: true, font_size: 12, foreground: '#E0F5FF', icon: 'fa:arrow-right', icon_align: right_edge, text: 💪 Speak with Power! 🌟}
+          type: Label
+        layout_properties: {grid_position: 'AAEIGV,VHYZSU'}
+        name: card_2
+        properties: {background: '#344D7C', col_widths: '{}', role: message}
+        type: ColumnPanel
+      event_bindings: {click: link_1_click}
+      layout_properties: {grid_position: 'YXGFDD,HFWALL'}
+      name: link_1
+      properties: {}
+      type: Link
+    - components:
+      - layout_properties: {grid_position: 'TXQGAX,QFQNBF'}
+        name: label_3_copy_2
+        properties:
+          align: center
+          bold: true
+          font_size: 12
+          foreground: theme:Primary 500
+          icon: ''
+          icon_align: right_edge
+          spacing_above: none
+          spacing_below: none
+          text: |
+            🏆 See How You Rank Against Users from Around the World! 🌎
+        type: Label
+      - components:
+        - components:
+          - event_bindings: {click: button_2_click}
+            layout_properties: {grid_position: 'QCFFXZ,TRNUES'}
+            name: button_2
+            properties: {background: '#A020F0', bold: true, font_size: 25, foreground: 'theme:White', icon: 'fa:bar-chart', spacing_above: none, spacing_below: none, text: Stats}
+            type: Button
+          layout_properties: {grid_position: 'MLVSNT,BPLHQE'}
+          name: card_2_copy
+          properties: {background: '#A020F0', col_widths: '{}', role: message}
+          type: ColumnPanel
+        event_bindings: {click: link_2_click}
+        layout_properties: {grid_position: 'QWXJDM,NYBAHN'}
+        name: link_2
+        properties: {}
+        type: Link
+      - components:
+        - components:
+          - event_bindings: {click: rank_click}
+            layout_properties: {grid_position: 'ICKVGC,YVWFJH'}
+            name: rank
+            properties: {background: '#FFD700', bold: true, font_size: 25, foreground: 'theme:Primary 500', icon: 'fa:sort-numeric-asc', spacing_above: none, spacing_below: none, text: Rank}
+            type: Button
+          layout_properties: {grid_position: 'CZUGCA,IAFAYJ'}
+          name: card_2_copy_2
+          properties: {background: '#FFD700', col_widths: '{"YVWFJH":40}', role: message}
+          type: ColumnPanel
+        event_bindings: {click: link_3_click}
+        layout_properties: {grid_position: 'QWXJDM,BBXTSC'}
+        name: link_3
+        properties: {}
+        type: Link
+      - layout_properties: {grid_position: 'WYOEXO,ANPCVY'}
+        name: label_3_copy
+        properties:
+          align: center
+          bold: true
+          font_size: 12
+          foreground: theme:Primary 500
+          icon: ''
+          icon_align: right_edge
+          spacing_above: none
+          spacing_below: none
+          text: |
+            📶 Track Progress With Your Average and Recent Scores! 📈
+        type: Label
+      layout_properties: {grid_position: 'NWHMTI,GUGHGS'}
+      name: card_6
+      properties: {background: 'theme:Gray 200', role: message, wrap_on: never}
+      type: ColumnPanel
+    layout_properties: {grid_position: 'NMRACO,CFPOVV'}
+    name: card_5
+    properties: {background: '#E0F5FF', role: message, wrap_on: never}
+    type: ColumnPanel
+  - layout_properties: {grid_position: 'DZIGJN,OBDQDD'}
+    name: spacer_1
+    properties: {height: 9}
+    type: Spacer
+  - components:
+    - event_bindings: {click: button_1_click}
+      layout_properties: {grid_position: 'SYCQXI,TIVONS'}
+      name: button_1
+      properties: {background: '', foreground: '', icon: 'fa:arrow-left', text: back}
+      type: Button
+    - event_bindings: {click: how_to_click}
+      layout_properties: {grid_position: 'SYCQXI,ZHTNWC'}
+      name: how_to
+      properties: {background: '', font_size: 14, foreground: '', icon: 'fa:question-circle-o', spacing_above: small, spacing_below: small, text: How to play}
+      type: Button
+    layout_properties: {grid_position: 'QTLJXK,QEICKO'}
+    name: card_4
+    properties: {background: '', role: message, wrap_on: never}
+    type: ColumnPanel
+  layout_properties: {grid_position: 'OFDRQI,MFZHEE'}
+  name: card_1
+  properties: {background: '', role: message, wrap_on: never}
+  type: ColumnPanel
+container:
+  properties: {wrap_on: never}
+  type: ColumnPanel
+is_package: true

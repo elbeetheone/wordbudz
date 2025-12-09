@@ -1,0 +1,21 @@
+components:
+- data_bindings:
+  - {code: 'self.item[''rank'']', property: text, writeback: false}
+  layout_properties: {column: JKSDUP}
+  name: label_1
+  properties: {}
+  type: Label
+- data_bindings:
+  - {code: 'self.item[''user'']', property: text, writeback: false}
+  layout_properties: {column: VJQQOR}
+  name: label_2
+  properties: {foreground: 'theme:Primary 500'}
+  type: Label
+- data_bindings:
+  - {code: 'self.item[''score'']', property: text, writeback: false}
+  layout_properties: {column: OJLQEN}
+  name: label_3
+  properties: {align: left, foreground: 'theme:Primary 500'}
+  type: Label
+container: {type: DataRowPanel}
+is_package: true

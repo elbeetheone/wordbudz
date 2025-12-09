@@ -1,0 +1,57 @@
+components:
+- event_bindings: {tick: timer_1_tick}
+  layout_properties: {grid_position: 'TUWFOQ,HQTXCM'}
+  name: timer_1
+  properties: {}
+  type: Timer
+- layout_properties: {grid_position: 'EYINOR,WVCJRG'}
+  name: spacer_2
+  properties: {height: 32}
+  type: Spacer
+- components:
+  - layout_properties: {grid_position: 'KLFTNU,FQRVDJ'}
+    name: code
+    properties: {align: center, bold: true, font_size: 30, foreground: '#E0F5FF', text: ''}
+    type: Label
+  - layout_properties: {grid_position: 'QUNRJN,CLSYVB'}
+    name: name
+    properties: {background: 'theme:White', foreground: 'theme:Primary 500', placeholder: ' League Name*'}
+    type: TextBox
+  - event_bindings: {change: games_change, focus: games_change, lost_focus: games_change}
+    layout_properties: {grid_position: 'PLLTHA,SZSQSZ'}
+    name: games
+    properties: {background: 'theme:White', foreground: 'theme:Primary 500', placeholder: ' Number of games (Max 1000)*', type: number}
+    type: TextBox
+  - layout_properties: {grid_position: 'UVPHEC,RNJELI'}
+    name: date
+    properties: {background: 'theme:White', placeholder: ' End date*'}
+    type: DatePicker
+  - layout_properties: {grid_position: 'GLBGGY,RRKGJS'}
+    name: spacer_1
+    properties: {height: 20}
+    type: Spacer
+  - event_bindings: {click: guide_payment_click}
+    layout_properties: {grid_position: 'KFCGOB,QHHVMR'}
+    name: guide_payment
+    properties: {background: '#344D7C', font_size: 12, foreground: 'theme:White', text: Payment Guide}
+    type: Button
+  - event_bindings: {click: submit_click}
+    layout_properties: {grid_position: 'CNTTKR,AMAGKQ'}
+    name: submit
+    properties: {role: primary-color, text: Submit}
+    type: Button
+  layout_properties: {grid_position: 'FBFDWQ,YQBVHC'}
+  name: card_1
+  properties: {background: '#344D7C', role: message}
+  type: ColumnPanel
+- layout_properties: {grid_position: 'XHCWLU,SQNMDM'}
+  name: label_1
+  properties: {align: center, bold: true, foreground: '#c70000', text: Please hold while we build your league!!!, visible: false}
+  type: Label
+- event_bindings: {click: home_click}
+  layout_properties: {grid_position: 'DSLURR,APHMJM'}
+  name: league_home
+  properties: {icon: 'fa:arrow-circle-left', role: primary-color, text: ''}
+  type: Button
+container: {type: ColumnPanel}
+is_package: true

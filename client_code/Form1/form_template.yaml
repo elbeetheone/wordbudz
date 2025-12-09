@@ -1,0 +1,8 @@
+components:
+- event_bindings: {click: button_1_click}
+  layout_properties: {grid_position: 'PCXPDY,LRGXZY'}
+  name: button_1
+  properties: {text: button_1}
+  type: Button
+container: {type: ColumnPanel}
+is_package: true

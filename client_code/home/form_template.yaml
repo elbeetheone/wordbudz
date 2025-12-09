@@ -1,0 +1,189 @@
+components:
+- components:
+  - layout_properties: {grid_position: 'RTHFLU,JJWVOH'}
+    name: label_1
+    properties: {align: center, bold: true, font_size: 30, foreground: 'theme:Primary 500', spacing_above: none, spacing_below: medium}
+    type: Label
+  - layout_properties: {grid_position: 'OFXUXA,NVVCML'}
+    name: date
+    properties: {align: center, background: '#A020F0', bold: true, font_size: 12, foreground: 'theme:White', icon: 'fa:calendar', role: message2, spacing_above: none, spacing_below: none}
+    type: Label
+  layout_properties: {slot: default}
+  name: card_2_copy_3
+  properties: {background: 'theme:Gray 50', role: message, spacing_above: medium, spacing_below: medium, wrap_on: never}
+  type: ColumnPanel
+- components:
+  - components:
+    - layout_properties: {grid_position: 'CHHFQY,ZENYBV'}
+      name: image_5
+      properties: {height: 74, source: _/theme/aceit.png, spacing_above: large}
+      type: Image
+    - components:
+      - layout_properties: {grid_position: 'UPKGXT,BSCRLY'}
+        name: aceittext
+        properties: {align: center, font_size: 25, foreground: 'theme:Primary 500', text: Improve Interview Confidence & Readiness!}
+        type: Label
+      layout_properties: {grid_position: 'YEOCZQ,YKYKLO'}
+      name: aceit_card
+      properties: {background: '', role: message}
+      type: ColumnPanel
+    layout_properties: {full_width_row: false, grid_position: 'YHRDNM,KQGKVJ'}
+    name: card_2
+    properties: {background: '#FFC0CB', role: message}
+    type: ColumnPanel
+  event_bindings: {click: ace_it_link_click}
+  layout_properties: {slot: default}
+  name: ace_it_link
+  properties: {}
+  type: Link
+- components:
+  - components:
+    - layout_properties: {grid_position: 'DPQEOW,YNKRKN'}
+      name: image_2
+      properties: {height: 64, source: _/theme/wordbudz_2.png, spacing_above: large}
+      type: Image
+    - components:
+      - layout_properties: {grid_position: 'UPKGXT,BSCRLY'}
+        name: wordbudztext
+        properties: {align: center, font_size: 25, foreground: 'theme:Primary 500', text: 'Improve Word Association, Word Recall & Learn New Words.'}
+        type: Label
+      layout_properties: {grid_position: 'FTGSNA,UIWPTN'}
+      name: wordb_card
+      properties: {background: '', role: message}
+      type: ColumnPanel
+    layout_properties: {full_width_row: false, grid_position: 'YITLDN,WSHLCI'}
+    name: word_card
+    properties: {background: 'theme:Gray 300', role: message, wrap_on: never}
+    type: ColumnPanel
+  event_bindings: {click: word_link_click}
+  layout_properties: {slot: default}
+  name: word_link
+  properties: {}
+  type: Link
+- components:
+  - components:
+    - layout_properties: {grid_position: 'GGBGTV,QHZZOL'}
+      name: image_3
+      properties: {height: 60, source: _/theme/anchors.png, spacing_above: large}
+      type: Image
+    - components:
+      - layout_properties: {grid_position: 'UPKGXT,BSCRLY'}
+        name: anchor_text
+        properties: {align: center, font_size: 25, foreground: 'theme:Primary 500', text: 'Improve Enunciation, Pronunciation & Voice Modulation'}
+        type: Label
+      layout_properties: {grid_position: 'TNPUID,GJRQHB'}
+      name: anchor_cardl
+      properties: {background: '', role: message}
+      type: ColumnPanel
+    layout_properties: {full_width_row: false, grid_position: 'DIGEGU,JHZGYG'}
+    name: anchor_card
+    properties: {background: '#FFD700', role: message, wrap_on: never}
+    type: ColumnPanel
+  event_bindings: {click: anchor_link_click}
+  layout_properties: {slot: default}
+  name: anchor_link
+  properties: {}
+  type: Link
+- components:
+  - components:
+    - layout_properties: {grid_position: 'BANKJL,KQUGPD'}
+      name: image_4
+      properties: {height: 83, source: _/theme/speecheazi.png, spacing_above: large}
+      type: Image
+    - components:
+      - layout_properties: {grid_position: 'UPKGXT,BSCRLY'}
+        name: speecheazi_text
+        properties: {align: center, font_size: 25, foreground: 'theme:Primary 500', text: Improve Public Speaking & Impromptu Speech Making}
+        type: Label
+      layout_properties: {grid_position: 'YMVBHJ,MMSNYF'}
+      name: speech_card
+      properties: {background: '', role: message}
+      type: ColumnPanel
+    layout_properties: {full_width_row: false, grid_position: 'JMAGII,MCXEQM'}
+    name: speak_card
+    properties: {background: '#E0F5FF', role: message, wrap_on: never}
+    type: ColumnPanel
+  event_bindings: {click: speech_link_click}
+  layout_properties: {slot: default}
+  name: speech_link
+  properties: {}
+  type: Link
+- components:
+  - components:
+    - layout_properties: {grid_position: 'RQISHH,IFFVAZ'}
+      name: label_2
+      properties: {align: center, bold: true, font_size: 25, icon: 'fa:envelope-open', text: Message Us}
+      type: Label
+    layout_properties: {grid_position: 'TMRQTR,BRJPJE'}
+    name: card_3
+    properties: {background: 'theme:Primary 500', role: message2}
+    type: ColumnPanel
+  event_bindings: {click: message_link_click}
+  layout_properties: {slot: default}
+  name: message_link
+  properties: {}
+  type: Link
+- components:
+  - event_bindings: {tick: timer_1_tick}
+    layout_properties: {grid_position: 'ILGYLY,VBRVIK'}
+    name: timer_1
+    properties: {}
+    type: Timer
+  - layout_properties: {grid_position: 'QMKPDZ,KODQWG'}
+    name: image_1
+    properties: {height: 49, source: _/theme/speakeasi_blue.png}
+    type: Image
+  layout_properties: {slot: default_}
+  name: card_1
+  properties: {col_widths: '{"KODQWG":20,"GBOZDC":40}', role: message, spacing_above: none, spacing_below: none, wrap_on: never}
+  type: ColumnPanel
+container:
+  properties:
+    html: |
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <style>
+            /* Style the top navigation bar */
+            .topnav {
+              background-color: white;
+              overflow: hidden;
+              position: fixed;
+              top: 0;
+              width: 100%;
+              z-index: 100;
+              height: 70px; /* ✅ Explicit height */
+              box-shadow: 0px 2px 5px rgba(0,0,0,0.1); /* Optional: slight shadow */
+            }
+
+            /* Style the links inside the navigation bar */
+            .topnav a {
+              float: left;
+              color: blue;
+              text-align: center;
+              padding: 18px 16px;
+              text-decoration: none;
+              font-size: 17px;
+            }
+
+            /* Add some padding to the body to prevent content from being hidden behind the fixed navbar */
+            body {
+              margin: 0;
+              padding-top: 60px; /* ✅ Match the .topnav height */
+            }
+          </style>
+        </head>
+        <body>
+
+          <div class="topnav">
+            <div anvil-slot="default_"></div>
+          </div>
+
+          <div style="padding-left:0px; height: 1200px;">
+            <div anvil-slot="default"></div>
+          </div>
+
+        </body>
+      </html>
+  type: HtmlTemplate
+is_package: true

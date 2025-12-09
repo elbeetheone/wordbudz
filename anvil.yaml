@@ -1,0 +1,237 @@
+allow_embedding: true
+correct_dependency_ids: {}
+db_schema:
+  curated_q:
+    client: none
+    columns:
+    - admin_ui: {order: -1, width: 200}
+      name: User
+      type: string
+    - admin_ui: {width: 200}
+      name: Position
+      type: number
+    - admin_ui: {order: 1, width: 200}
+      name: question_list
+      type: simpleObject
+    - admin_ui: {width: 200}
+      name: recordings
+      type: media
+    - admin_ui: {order: 2, width: 200}
+      name: job_title
+      type: string
+    server: full
+    title: curated_q
+  questions:
+    client: none
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      name: unique_key
+      type: string
+    - admin_ui: {order: 1, width: 200}
+      name: question_list
+      type: simpleObject
+    - admin_ui: {order: 2, width: 200}
+      name: recordings
+      type: media
+    - admin_ui: {order: 3, width: 200}
+      name: position
+      type: number
+    server: full
+    title: Questions
+  users:
+    client: none
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      name: name
+      type: string
+    - admin_ui: {order: 1, width: 200}
+      name: enabled
+      type: bool
+    - admin_ui: {order: 2, width: 200}
+      name: last_login
+      type: datetime
+    - admin_ui: {order: 3, width: 200}
+      name: password_hash
+      type: string
+    - admin_ui: {order: 4, width: 200}
+      name: n_password_failures
+      type: number
+    - admin_ui: {order: 5, width: 200}
+      name: confirmed_email
+      type: bool
+    - admin_ui: {order: 6, width: 200}
+      name: signed_up
+      type: datetime
+    - admin_ui: {order: 7, width: 102}
+      name: username
+      type: string
+    - admin_ui: {order: 11, width: 200}
+      name: remembered_logins
+      type: simpleObject
+    - admin_ui: {order: 20, width: 200}
+      name: today_words
+      type: simpleObject
+    - admin_ui: {order: 26, width: 127}
+      name: user_words
+      type: simpleObject
+    - admin_ui: {width: 200}
+      name: email_confirmation_key
+      type: string
+    - admin_ui: {order: 27, width: 136}
+      name: ranked_table
+      type: simpleObject
+    - admin_ui: {order: 28, width: 53}
+      name: players
+      type: number
+    - admin_ui: {order: 30, width: 83}
+      name: finishes
+      type: date
+    - admin_ui: {order: 31, width: 72}
+      name: admin
+      type: string
+    - admin_ui: {order: 15.5, width: 51}
+      name: tier
+      type: number
+    - admin_ui: {order: 32, width: 71}
+      name: Promote
+      type: simpleObject
+    - admin_ui: {order: 33, width: 83}
+      name: Relegate
+      type: simpleObject
+    - admin_ui: {order: 34, width: 88}
+      name: merch
+      type: simpleObject
+    - admin_ui: {order: 35, width: 50}
+      name: Prices
+      type: simpleObject
+    - admin_ui: {order: 36, width: 200}
+      name: avg
+      type: simpleObject
+    server: full
+    title: Users
+dependencies: []
+metadata: {description: Speak Boldly, logo_img: 'asset:-high-resolution-logo-transparent.png', title: SpeakEasi}
+name: Clone of SpeakEasi
+native_deps:
+  head_html: |-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Raleway:wght@100&display=swap" rel="stylesheet">
+
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SpeakEasi - Fear Not; Speak Boldly">
+    <meta name="twitter:description" content="Conquer your public speaking fear with just a few minutes daily. Develop charisma and confidence with our fun word games.">
+    <meta name="twitter:image" content="https://speakeasi.app/_/theme/logo-white%5B1%5D-logo.png">
+    <meta name="twitter:image:alt" content="https://speakeasi.app/_/theme/speakeasi-favicon-color.svg">
+
+    <script>
+        function copyclip(texttocopy) {
+          // Create new element
+          var el = document.createElement('textarea');
+          // Set value (string to be copied)
+          el.value = texttocopy;
+          // Set non-editable to avoid focus and move outside of view
+          el.setAttribute('readonly', '');
+          el.style = {position: 'absolute', left: '-9999px'};
+          document.body.appendChild(el);
+          // Select text inside element
+          el.select();
+          // Copy text to clipboard
+          document.execCommand('copy');
+          // Remove temporary element
+          document.body.removeChild(el);
+        }
+    function redirectToRelativeURL(relativeURL) {
+        // Construct absolute URL based on the current location
+        const absoluteURL = new URL(relativeURL, window.location.href);
+
+        // Log the absolute URL (optional)
+        console.log('Redirecting to:', absoluteURL.href);
+
+        // Redirect to the absolute URL
+        window.location.href = absoluteURL.href;
+    }
+    </script>
+package_name: wordbudz
+runtime_options:
+  client_version: '3'
+  server_spec: {base: python310-minimal}
+  server_spec_disabled: {base: python310-datascience, requirements: wordcloud}
+  server_version: python3-sandbox
+  version: 2
+scheduled_tasks:
+- job_id: GFKQYHOI
+  task_name: daily_cancel
+  time_spec:
+    at: {hour: 0, minute: 0}
+    every: day
+    n: 1
+secrets: null
+services:
+- client_config: {}
+  server_config: {}
+  source: /runtime/services/tables.yml
+- client_config: {allow_remember_me: true, allow_signup: true, confirm_email: false, enable_automatically: true, remember_me_days: 365, use_email: true, use_facebook: true, use_google: true}
+  server_config: {user_table: users}
+  source: /runtime/services/anvil/users.yml
+- client_config:
+    app_files:
+    - alternateLink: https://drive.google.com/drive/folders/1mLI-zzpLo1fn1mrdebmNKf7Q081vixQS
+      appDataContents: false
+      capabilities: {canCopy: false, canEdit: true}
+      copyRequiresWriterPermission: false
+      copyable: false
+      createdDate: '2025-08-30T18:39:53.191Z'
+      editable: true
+      embedLink: https://drive.google.com/embeddedfolderview?id=1mLI-zzpLo1fn1mrdebmNKf7Q081vixQS
+      etag: '"MTc1NjU3OTE5MzE5MQ"'
+      explicitlyTrashed: false
+      iconLink: https://drive-thirdparty.googleusercontent.com/16/type/application/vnd.google-apps.folder
+      id: 1mLI-zzpLo1fn1mrdebmNKf7Q081vixQS
+      kind: drive#file
+      labels: {hidden: false, restricted: false, starred: false, trashed: false, viewed: true}
+      lastModifyingUser:
+        displayName: Laolu Ibrahim
+        emailAddress: laolu.ibs@gmail.com
+        isAuthenticatedUser: true
+        kind: drive#user
+        permissionId: '01599057869546113581'
+        picture: {url: 'https://lh3.googleusercontent.com/a/ACg8ocKVYGgOhWjgaWrXOYEpl9BkveMLKUBvpE-k6TwqU3pql-4qY1Y=s64'}
+      lastModifyingUserName: Laolu Ibrahim
+      lastViewedByMeDate: '2025-08-30T18:39:53.191Z'
+      markedViewedByMeDate: '1970-01-01T00:00:00.000Z'
+      mimeType: application/vnd.google-apps.folder
+      modifiedByMeDate: '2025-08-30T18:39:53.191Z'
+      modifiedDate: '2025-08-30T18:39:53.191Z'
+      ownerNames: [Laolu Ibrahim]
+      owners:
+      - displayName: Laolu Ibrahim
+        emailAddress: laolu.ibs@gmail.com
+        isAuthenticatedUser: true
+        kind: drive#user
+        permissionId: '01599057869546113581'
+        picture: {url: 'https://lh3.googleusercontent.com/a/ACg8ocKVYGgOhWjgaWrXOYEpl9BkveMLKUBvpE-k6TwqU3pql-4qY1Y=s64'}
+      parents:
+      - {id: 0AMr_KqBg4JoHUk9PVA, isRoot: true, kind: drive#parentReference, parentLink: 'https://www.googleapis.com/drive/v2/files/0AMr_KqBg4JoHUk9PVA', selfLink: 'https://www.googleapis.com/drive/v2/files/1mLI-zzpLo1fn1mrdebmNKf7Q081vixQS/parents/0AMr_KqBg4JoHUk9PVA'}
+      python_name: curated_q
+      quotaBytesUsed: '0'
+      selfLink: https://www.googleapis.com/drive/v2/files/1mLI-zzpLo1fn1mrdebmNKf7Q081vixQS
+      shared: false
+      spaces: [drive]
+      title: curated_q
+      userPermission: {etag: '"lFvYhVJJuB1830oMHxSyjHz9zgo"', id: me, kind: drive#permission, pendingOwner: false, role: owner, selfLink: 'https://www.googleapis.com/drive/v2/files/1mLI-zzpLo1fn1mrdebmNKf7Q081vixQS/permissions/me', type: user}
+      version: '2'
+      writersCanShare: true
+  server_config: {}
+  source: /runtime/services/google.yml
+- client_config: {}
+  server_config: {}
+  source: /runtime/services/anvil/email.yml
+- client_config: {}
+  server_config: {}
+  source: /runtime/services/stripe.yml
+startup: {module: username, type: form}
+startup_form: null
+uplink_visible: true

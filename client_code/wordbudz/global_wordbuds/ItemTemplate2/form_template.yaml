@@ -1,0 +1,53 @@
+components:
+- components:
+  - components:
+    - data_bindings:
+      - {code: 'self.item[''word''].capitalize()', property: text, writeback: false}
+      layout_properties: {grid_position: 'ZTGTBN,KCDTUN'}
+      name: label_1
+      properties: {align: center, bold: true, font: '', font_size: 35, foreground: '#E0F5FF', icon: ''}
+      type: Label
+    layout_properties: {grid_position: 'EIPMXO,GXJUNE'}
+    name: card_1
+    properties: {background: 'theme:Primary 500', role: message}
+    type: ColumnPanel
+  layout_properties: {grid_position: 'XNVADP,XJJBLN'}
+  name: card_4
+  properties: {role: message}
+  type: ColumnPanel
+- components:
+  - components:
+    - data_bindings:
+      - {code: 'self.item[''scores'']', property: text, writeback: false}
+      layout_properties: {grid_position: 'URXUFH,CXJRMI'}
+      name: label_3
+      properties: {align: center, bold: true, font: '', font_size: 35, foreground: '#c70000', icon: 'fa:bullseye', italic: false, underline: false}
+      type: Label
+    layout_properties: {grid_position: 'EERJKG,ILILJL'}
+    name: card_3
+    properties: {background: '', foreground: '', role: message, wrap_on: never}
+    type: ColumnPanel
+  layout_properties: {grid_position: 'XNVADP,MIGBQE'}
+  name: card_6
+  properties: {role: message, wrap_on: never}
+  type: ColumnPanel
+- components:
+  - components:
+    - data_bindings:
+      - {code: 'self.item[''synonym''].capitalize()', property: text, writeback: false}
+      layout_properties: {grid_position: 'ZFASVC,NATYEX'}
+      name: label_2
+      properties: {align: center, bold: true, font: '', font_size: 35, foreground: 'theme:White', icon: ''}
+      type: Label
+    layout_properties: {grid_position: 'JVQFMI,IATIKQ'}
+    name: card_2
+    properties: {background: '#344D7C', role: message}
+    type: ColumnPanel
+  layout_properties: {grid_position: 'XNVADP,QDMGGA'}
+  name: card_5
+  properties: {role: message}
+  type: ColumnPanel
+container:
+  properties: {background: '', col_widths: '{}', role: message}
+  type: ColumnPanel
+is_package: true

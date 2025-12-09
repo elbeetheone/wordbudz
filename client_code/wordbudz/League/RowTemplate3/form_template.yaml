@@ -1,0 +1,16 @@
+components:
+- data_bindings:
+  - {code: 'self.item[''finishes'']', property: text, writeback: false}
+  layout_properties: {column: UKZVDD}
+  name: label_2
+  properties: {foreground: 'theme:Primary 500'}
+  type: Label
+- data_bindings:
+  - {code: 'self.item[''name'']', property: text, writeback: false}
+  event_bindings: {click: league_title_click}
+  layout_properties: {column: JKSDUP}
+  name: league_title
+  properties: {align: left, bold: true, role: null, text: ''}
+  type: Button
+container: {type: DataRowPanel}
+is_package: true

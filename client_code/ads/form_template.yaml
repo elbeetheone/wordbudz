@@ -1,0 +1,25 @@
+components:
+- event_bindings: {click: button_1_click}
+  layout_properties: {slot: default}
+  name: button_1
+  properties: {background: '#FF0000', foreground: 'theme:Black', icon: 'fa:close', text: ''}
+  type: Button
+- event_bindings: {tick: timer_2_tick}
+  layout_properties: {slot: default}
+  name: timer_2
+  properties: {}
+  type: Timer
+- event_bindings: {tick: timer_1_tick}
+  layout_properties: {slot: default}
+  name: timer_1
+  properties: {}
+  type: Timer
+container:
+  properties:
+    html: |-
+      <center style="font-style:italic; color:#888; margin: 3em;">
+        (Insert your custom HTML here)
+      </center>
+      <div anvil-slot="default"></div>
+  type: HtmlTemplate
+is_package: true

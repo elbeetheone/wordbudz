@@ -1,0 +1,51 @@
+components:
+- data_bindings:
+  - {code: 'self.item[''price''] * self.item[''num_item'']', property: text, writeback: false}
+  layout_properties: {column: VJQQOR}
+  name: label_2
+  properties: {foreground: 'theme:Primary 500', text: ''}
+  type: Label
+- data_bindings:
+  - {code: 'self.item[''item_description'']', property: text, writeback: false}
+  event_bindings: {click: link_1_click}
+  layout_properties: {column: JKSDUP}
+  name: link_1
+  properties: {foreground: 'theme:Primary 700', text: ''}
+  type: Link
+- components:
+  - data_bindings:
+    - {code: 'self.item[''trans_id'']', property: text, writeback: false}
+    layout_properties: {grid_position: 'NTEXHG,ZOCFAU'}
+    name: label_1
+    properties: {font_size: 0}
+    type: Label
+  event_bindings: {click: trash_click}
+  layout_properties: {column: FNDNPO}
+  name: trash
+  properties: {foreground: '#FF0000', icon: 'fa:trash'}
+  type: Link
+- components:
+  - event_bindings: {click: link_2_click}
+    layout_properties: {grid_position: 'JDADKK,BOJJPI'}
+    name: link_2
+    properties: {align: right, foreground: 'theme:Primary 700', icon: 'fa:plus', spacing_above: medium, spacing_below: none, text: ''}
+    type: Link
+  - data_bindings:
+    - {code: 'self.item[''num_item'']', property: text, writeback: false}
+    layout_properties: {grid_position: 'JDADKK,GUXHGK'}
+    name: label_3
+    properties: {align: center, bold: true, foreground: 'theme:Primary 500', spacing_above: none, spacing_below: none, text: ''}
+    type: Label
+  - event_bindings: {click: link_3_click}
+    layout_properties: {grid_position: 'JDADKK,MYDFFT'}
+    name: link_3
+    properties: {align: left, foreground: 'theme:Secondary 700', icon: 'fa:minus', spacing_above: medium, spacing_below: none, text: ''}
+    type: Link
+  layout_properties: {column: JKSDUP}
+  name: card_1
+  properties: {role: message, spacing_above: none, spacing_below: none, wrap_on: never}
+  type: ColumnPanel
+container:
+  properties: {foreground: 'theme:Primary 700'}
+  type: DataRowPanel
+is_package: true

@@ -1,0 +1,45 @@
+components:
+- components:
+  - layout_properties: {}
+    name: repeating_panel_1
+    properties: {background: 'theme:White', foreground: '', item_template: merch.item_.RowTemplate6}
+    type: RepeatingPanel
+  - layout_properties: {}
+    name: label_1
+    properties: {align: center, bold: true, text: 'Total: ', underline: true}
+    type: Label
+  - layout_properties: {}
+    name: label_2
+    properties: {align: center, bold: true, text: Address (including postal code)}
+    type: Label
+  - event_bindings: {pressed_enter: address_pressed_enter}
+    layout_properties: {}
+    name: address
+    properties: {align: center, font_size: 12, role: message}
+    type: TextBox
+  - layout_properties: {}
+    name: country
+    properties:
+      align: center
+      bold: true
+      font_size: 12
+      items: [United States of America, United Kingdom, Canada, India, Nigeria, China, UAE]
+      role: message
+    type: DropDown
+  - event_bindings: {click: button_1_click}
+    name: button_1
+    properties: {background: '#344D7C', foreground: 'theme:White', icon: 'fa:shopping-cart', text: checkout}
+    type: Button
+  layout_properties: {grid_position: 'BRWQCG,GVEYRO'}
+  name: data_grid_1
+  properties:
+    background: ''
+    columns:
+    - {data_key: column_1, expand: false, id: JKSDUP, title: Item, width: 183}
+    - {data_key: column_2, expand: false, id: VJQQOR, title: Price, width: 118}
+    - {data_key: column_1, id: FNDNPO, title: ''}
+    foreground: theme:Primary 500
+    role: message
+  type: DataGrid
+container: {type: ColumnPanel}
+is_package: true

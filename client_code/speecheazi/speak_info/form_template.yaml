@@ -1,0 +1,79 @@
+components:
+- components:
+  - layout_properties: {grid_position: 'VYXYEI,ZUSESX'}
+    name: label_1_copy
+    properties: {align: center, bold: true, font_size: 45, foreground: 'theme:Primary 500', spacing_above: none, text: Find Your Confidence}
+    type: Label
+  - layout_properties: {grid_position: 'DMZEOM,MUBFSW'}
+    name: label_6_copy
+    properties: {align: center, bold: true, font_size: null, foreground: 'theme:Secondary 500', text: Improve Public Speaking & Impromptu Speech Making}
+    type: Label
+  layout_properties: {grid_position: 'QKQHXS,VRMBCM'}
+  name: card_1
+  properties: {background: 'theme:Gray 100', role: message}
+  type: ColumnPanel
+- components:
+  - components:
+    - layout_properties: {grid_position: 'MDAQBR,LIGIYL'}
+      name: label_11_copy
+      properties: {align: center, background: '#c70000', bold: true, foreground: 'theme:White', icon: 'fa:bullhorn', role: message2, text: 'First time here? Test your mic by clicking the button below and enable it if prompted.'}
+      type: Label
+    - event_bindings: {click: test_click}
+      layout_properties: {grid_position: 'MKVCXU,USFCBR'}
+      name: test
+      properties: {foreground: '', icon: 'fa:microphone', role: primary-color, text: test mic}
+      type: Button
+    - layout_properties: {grid_position: 'XFWTKS,ABFZJN'}
+      name: speak
+      properties: {align: center, bold: true, foreground: '#c70000', text: Say 'Hello', visible: false}
+      type: Label
+    layout_properties: {grid_position: 'FJHECD,QSWNFW'}
+    name: card_5
+    properties: {background: 'theme:Gray 300', role: message}
+    type: ColumnPanel
+  - layout_properties: {grid_position: 'EKFXCU,UXGQWR'}
+    name: label_10
+    properties: {align: center, bold: true, font_size: 20, foreground: 'theme:Primary 500', spacing_above: none, spacing_below: none, text: How to Play, underline: true}
+    type: Label
+  - layout_properties: {grid_position: 'DCIZXV,IAREID'}
+    name: label_4
+    properties: {align: center, bold: true, foreground: 'theme:Primary 500', text: Click on the 'Generate' button on the game page to reveal the topic of the day.}
+    type: Label
+  - layout_properties: {grid_position: 'HOUGPW,RVNCJI'}
+    name: label_5
+    properties:
+      align: center
+      bold: true
+      foreground: theme:Primary 500
+      text: "Plan your speech on the topic accordingly. \nTake note of the countdown, you have roughly two minutes to prep.\n"
+    type: Label
+  - layout_properties: {grid_position: 'FWYOJI,NZZXCA'}
+    name: label_6
+    properties: {align: center, bold: true, foreground: 'theme:Primary 500', text: 'Once prompted to ''begin'', you may start your speech.'}
+    type: Label
+  - layout_properties: {grid_position: 'UBTKUE,WJPVUG'}
+    name: button_1
+    properties: {background: 'theme:Primary 700', bold: false, border: '', font_size: 25, foreground: 'theme:White', text: start}
+    type: Button
+  - layout_properties: {grid_position: 'NRRBNP,EVSDID'}
+    name: label_1
+    properties:
+      align: center
+      bold: true
+      foreground: theme:Primary 700
+      spacing_below: large
+      text: |-
+        Maximum score is 10.0
+        Compete in our Daily Leaderboard and Have Fun as you Become a Great Speaker
+    type: Label
+  - event_bindings: {click: link_1_click}
+    layout_properties: {grid_position: 'LANJOP,NCYGWJ'}
+    name: link_1
+    properties: {align: center, font_size: 13, text: Watch Tutorial, underline: true}
+    type: Link
+  layout_properties: {grid_position: 'PRESPU,ANWZDR'}
+  name: card_2
+  properties: {background: 'theme:Gray 100', role: message}
+  type: ColumnPanel
+container: {type: ColumnPanel}
+is_package: true

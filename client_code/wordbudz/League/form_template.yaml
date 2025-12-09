@@ -1,0 +1,200 @@
+components:
+- layout_properties: {grid_position: 'ZGNANW,VFBHOS'}
+  name: spacer_3
+  properties: {height: 27}
+  type: Spacer
+- components:
+  - event_bindings: {click: open_click}
+    layout_properties: {grid_position: 'KKFYBO,LBAJQZ'}
+    name: open
+    properties: {background: 'theme:Primary 500', foreground: '#E0F5FF', role: primary-color, text: Public League}
+    type: Button
+  - event_bindings: {click: closed_click}
+    layout_properties: {grid_position: 'KKFYBO,SADJBZ'}
+    name: closed
+    properties: {background: '#344D7C', foreground: '#E0F5FF', text: Private League}
+    type: Button
+  layout_properties: {grid_position: 'QPQEIC,UWQUOO'}
+  name: card_4
+  properties: {role: message, wrap_on: never}
+  type: ColumnPanel
+- components:
+  - layout_properties: {grid_position: 'GCWFVP,XFHNYL RLPTWQ,IVSEQS'}
+    name: label_5
+    properties: {align: center, bold: true, font_size: 45, foreground: '#E0F5FF'}
+    type: Label
+  - layout_properties: {grid_position: 'GCWFVP,XFHNYL NNYKNX,KZFHVX'}
+    name: label_6
+    properties: {align: center}
+    type: Label
+  - layout_properties: {grid_position: 'GCWFVP,IZXDNM OFNFAU,OZJZQJ'}
+    name: spacer_1
+    properties: {height: 32}
+    type: Spacer
+  - event_bindings: {click: league_continue_click}
+    layout_properties: {grid_position: 'GCWFVP,IZXDNM WZDEYZ,SRVZJG'}
+    name: league_continue
+    properties: {background: '#344D7C', bold: false, font_size: 18, foreground: 'theme:White', icon: 'fa:arrow-circle-right', icon_align: right, text: CONTINUE}
+    type: Button
+  - layout_properties: {grid_position: 'GCWFVP,IZXDNM DIRWZN,GBZPFW'}
+    name: spacer_2
+    properties: {height: 32}
+    type: Spacer
+  layout_properties: {grid_position: 'LODNHM,JXFAIZ'}
+  name: card_5
+  properties: {background: 'theme:Primary 500', role: message, visible: false, wrap_on: never}
+  type: ColumnPanel
+- components:
+  - layout_properties: {grid_position: 'GCWFVP,XFHNYL'}
+    name: label_closed
+    properties: {align: center, bold: true, font_size: 45, foreground: '#E0F5FF'}
+    type: Label
+  - event_bindings: {click: league_continue_closed_click}
+    layout_properties: {grid_position: 'GCWFVP,IZXDNM RKFCIO,DSEETO'}
+    name: league_continue_closed
+    properties: {font_size: 18, icon: 'fa:arrow-circle-right', icon_align: right, role: primary-color, text: CONTINUE}
+    type: Button
+  - components:
+    - event_bindings: {click: link_2_click}
+      layout_properties: {grid_position: 'UFZKKJ,GFXESQ'}
+      name: link_2
+      properties: {align: center, foreground: 'theme:White', icon: 'fa:share-alt', text: Share League Code}
+      type: Link
+    layout_properties: {grid_position: 'GCWFVP,IZXDNM HZZCBE,MAVOSR'}
+    name: card_7
+    properties: {role: message, visible: false}
+    type: ColumnPanel
+  layout_properties: {grid_position: 'DUVYWD,FWXTIR'}
+  name: card_6
+  properties: {background: '#344D7C', role: message, visible: false, wrap_on: never}
+  type: ColumnPanel
+- components:
+  - components:
+    - layout_properties: {grid_position: 'CTKONR,YEEYUM'}
+      name: label_1
+      properties: {align: center, font_size: 18, foreground: '#E0F5FF', text: PUBLIC LEAGUE}
+      type: Label
+    - layout_properties: {grid_position: 'ORFEBE,XZICQD'}
+      name: label_1_copy
+      properties: {align: center, font_size: null, foreground: '#E0F5FF', text: Click on the available league title to join}
+      type: Label
+    - components:
+      - layout_properties: {}
+        name: repeating_panel_1
+        properties: {background: 'theme:White', item_template: wordbudz.League.RowTemplate3}
+        type: RepeatingPanel
+      layout_properties: {grid_position: 'DLGZFJ,JQLQCB'}
+      name: data_grid_1
+      properties:
+        columns:
+        - {data_key: column_1, expand: false, id: JKSDUP, title: '      Leagues', width: 197}
+        - {data_key: column_2, id: UKZVDD, title: Finishes}
+      type: DataGrid
+    layout_properties: {grid_position: 'BMVTRG,XGUIEJ'}
+    name: card_1
+    properties: {background: 'theme:Primary 500', role: message, visible: true}
+    type: ColumnPanel
+  layout_properties: {grid_position: 'LDOMJP,RDCXDD'}
+  name: link_1
+  properties: {}
+  type: Link
+- components:
+  - layout_properties: {grid_position: 'OCZKPW,CPTWBX'}
+    name: label_2
+    properties: {align: center, font_size: 18, foreground: '#E0F5FF', text: PRIVATE LEAGUE (CODE REQUIRED)}
+    type: Label
+  - layout_properties: {grid_position: 'SHFBTP,LFJAUB'}
+    name: label_2_copy
+    properties: {align: center, foreground: '#E0F5FF', text: Enter the six digit code given by the host to join!!!}
+    type: Label
+  - components:
+    - event_bindings: {click: zero_click}
+      layout_properties: {grid_position: 'WPNHEN,KCTBFP'}
+      name: zero
+      properties: {role: primary-color, text: '0'}
+      type: Button
+    - event_bindings: {click: one_click}
+      layout_properties: {grid_position: 'WPNHEN,MHPFRW'}
+      name: one
+      properties: {role: primary-color, text: '1'}
+      type: Button
+    - event_bindings: {click: two_click}
+      layout_properties: {grid_position: 'WPNHEN,VOPTDP'}
+      name: two
+      properties: {role: primary-color, text: '2'}
+      type: Button
+    - event_bindings: {click: three_click}
+      layout_properties: {grid_position: 'WPNHEN,UBEVAX'}
+      name: three
+      properties: {role: primary-color, text: '3'}
+      type: Button
+    - event_bindings: {click: four_click}
+      layout_properties: {grid_position: 'WPNHEN,ZSWLUF'}
+      name: four
+      properties: {role: primary-color, text: '4'}
+      type: Button
+    - event_bindings: {click: five_click}
+      layout_properties: {grid_position: 'WPNHEN,NZWXMW'}
+      name: five
+      properties: {role: primary-color, text: '5'}
+      type: Button
+    - event_bindings: {click: six_click}
+      layout_properties: {grid_position: 'WPNHEN,HFEZVD'}
+      name: six
+      properties: {role: primary-color, text: '6'}
+      type: Button
+    - event_bindings: {click: seven_click}
+      layout_properties: {grid_position: 'WPNHEN,HDVSZH'}
+      name: seven
+      properties: {role: primary-color, text: '7'}
+      type: Button
+    - event_bindings: {click: eight_click}
+      layout_properties: {grid_position: 'WPNHEN,YVHJNR'}
+      name: eight
+      properties: {role: primary-color, text: '8'}
+      type: Button
+    - event_bindings: {click: nine_click}
+      layout_properties: {grid_position: 'WPNHEN,QLUJTA'}
+      name: nine
+      properties: {role: primary-color, text: '9'}
+      type: Button
+    - event_bindings: {click: back_click}
+      layout_properties: {grid_position: 'TTJBSU,VOODQX'}
+      name: back
+      properties: {icon: 'fa:eraser', role: primary-color, text: ''}
+      type: Button
+    layout_properties: {grid_position: 'EGEEHD,DLLLIM'}
+    name: card_3
+    properties: {role: message, wrap_on: never}
+    type: ColumnPanel
+  - layout_properties: {grid_position: 'UFCWKQ,NBHIGE'}
+    name: label_3
+    properties: {align: center, background: 'theme:White', bold: true, foreground: 'theme:Primary 500', role: message}
+    type: Label
+  - event_bindings: {click: submit_click}
+    layout_properties: {grid_position: 'QLZIWV,QRALNJ'}
+    name: submit
+    properties: {role: primary-color, text: Submit}
+    type: Button
+  - layout_properties: {grid_position: 'WEAUBM,MRIRAX'}
+    name: label_4
+    properties: {align: center, foreground: '#E0F5FF', text: OR}
+    type: Label
+  - event_bindings: {click: new_closed_league_click}
+    layout_properties: {grid_position: 'DHQXAB,YHPJNL'}
+    name: new_closed_league
+    properties: {background: '#344D7C', font_size: 16, foreground: '#E0F5FF', text: Start a New Private League}
+    type: Button
+  layout_properties: {grid_position: 'XKYJUB,RVPOGH'}
+  name: card_2
+  properties: {background: '#344D7C', role: message, visible: false}
+  type: ColumnPanel
+- event_bindings: {click: home_click}
+  layout_properties: {grid_position: 'ONLSGG,SOXQNG'}
+  name: home
+  properties: {icon: 'fa:arrow-circle-left', role: primary-color, text: ''}
+  type: Button
+container:
+  properties: {foreground: '#344D7C'}
+  type: ColumnPanel
+is_package: true

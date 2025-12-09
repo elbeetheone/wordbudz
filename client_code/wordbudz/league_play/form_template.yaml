@@ -1,0 +1,75 @@
+components:
+- components:
+  - event_bindings: {click: link_1_click}
+    layout_properties: {grid_position: 'SMJSUU,PYMRQQ TVXKZT,KHXNRV'}
+    name: link_1
+    properties: {bold: true, foreground: 'theme:Primary 500', icon: 'fa:arrow-circle-left', underline: true}
+    type: Link
+  - layout_properties: {grid_position: 'SMJSUU,KMCENQ'}
+    name: rank
+    properties: {align: right, bold: true, font_size: null, foreground: 'theme:Primary 500', icon: '', icon_align: right, spacing_above: none, spacing_below: none}
+    type: Label
+  layout_properties: {grid_position: 'PKAWQY,QTLTIY'}
+  name: card_5
+  properties: {background: '#E0F5FF', role: message, wrap_on: never}
+  type: ColumnPanel
+- event_bindings: {click: play_click}
+  layout_properties: {grid_position: ''}
+  name: play
+  properties: {role: primary-color, text: Play}
+  type: Button
+- event_bindings: {tick: timer_1_tick}
+  layout_properties: {grid_position: 'NKGQQO,XDYDMG'}
+  name: timer_1
+  properties: {}
+  type: Timer
+- components:
+  - layout_properties: {grid_position: 'JLGVSD,ATDTNV'}
+    name: label_1
+    properties: {align: center, bold: true, font_size: 18, foreground: 'theme:Primary 500'}
+    type: Label
+  - components:
+    - layout_properties: {grid_position: 'RWTNZB,CPNUAD'}
+      name: label_4
+      properties: {align: center, bold: true, font_size: 18, foreground: 'theme:Primary 500', text: 'Ends on:'}
+      type: Label
+    - layout_properties: {grid_position: 'RWTNZB,OQWXMJ'}
+      name: label_2
+      properties: {align: center, bold: true, font_size: 18, foreground: 'theme:Primary 500'}
+      type: Label
+    layout_properties: {grid_position: 'CAYPUZ,UJYLGP'}
+    name: card_2
+    properties: {col_widths: '{"CPNUAD":30,"OQWXMJ":30}', role: message, wrap_on: never}
+    type: ColumnPanel
+  layout_properties: {grid_position: 'FLNAWM,BDLTDN'}
+  name: card_1
+  properties: {role: message, wrap_on: never}
+  type: ColumnPanel
+- components:
+  - layout_properties: {}
+    name: repeating_panel_1
+    properties: {background: 'theme:White', foreground: 'theme:Primary 500', item_template: wordbudz.league_play.RowTemplate4}
+    type: RepeatingPanel
+  - layout_properties: {slot: footer}
+    name: label_3
+    properties:
+      align: center
+      font_size: 10
+      text: |
+        Top 1% are promoted to a higher tier when the public league ends.
+        Bottom 1% are relegated
+    type: Label
+  layout_properties: {grid_position: 'NRFCXV,TIIHZN'}
+  name: data_grid_1
+  properties:
+    background: theme:Primary 500
+    columns:
+    - {data_key: column_1, expand: false, id: BSGFSB, title: Rank, width: 47}
+    - {data_key: column_1, expand: false, id: JKSDUP, title: User, width: 127}
+    - {data_key: column_2, expand: false, id: VJQQOR, title: Played, width: 78}
+    - {data_key: column_3, id: OJLQEN, title: Total Score}
+    foreground: '#E0F5FF'
+    role: message
+  type: DataGrid
+container: {type: ColumnPanel}
+is_package: true

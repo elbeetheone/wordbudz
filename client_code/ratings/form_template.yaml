@@ -1,0 +1,68 @@
+components:
+- components:
+  - layout_properties: {grid_position: 'SMJSUU,PYMRQQ'}
+    name: label_5
+    properties: {align: left, foreground: 'theme:Primary 500', icon: 'fa:user', spacing_above: none, spacing_below: none}
+    type: Label
+  - layout_properties: {grid_position: 'SMJSUU,KMCENQ'}
+    name: rank
+    properties: {align: right, bold: true, font_size: null, foreground: 'theme:Primary 500', icon: '', icon_align: right, spacing_above: none, spacing_below: none}
+    type: Label
+  layout_properties: {grid_position: 'UUOGNM,WYWUHS'}
+  name: card_5
+  properties: {background: '#E0F5FF', role: message, wrap_on: never}
+  type: ColumnPanel
+- components:
+  - event_bindings: {click: daily_click}
+    layout_properties: {grid_position: 'EGSJEM,WQASEZ'}
+    name: daily
+    properties: {background: 'theme:Primary 500', enabled: false, font_size: 22, foreground: '#E0F5FF', text: Daily}
+    type: Button
+  - event_bindings: {click: avg_click}
+    layout_properties: {grid_position: 'EGSJEM,LZWTFM'}
+    name: avg
+    properties: {background: '#344D7C', font_size: null, foreground: '#E0F5FF', text: Total Avg}
+    type: Button
+  layout_properties: {grid_position: 'EKVSJM,CSOOBX'}
+  name: card_1
+  properties: {role: message, wrap_on: never}
+  type: ColumnPanel
+- components:
+  - layout_properties: {}
+    name: repeating_panel_1
+    properties: {background: 'theme:White', foreground: 'theme:Primary 500', item_template: ratings.RowTemplate2}
+    type: RepeatingPanel
+  layout_properties: {grid_position: 'ZEWREI,ENPDNX'}
+  name: data_grid_1
+  properties:
+    background: theme:Primary 500
+    columns:
+    - {data_key: column_1, expand: false, id: JKSDUP, title: '', width: 55}
+    - {data_key: column_2, expand: false, id: VJQQOR, title: User, width: 162}
+    - {data_key: column_3, id: OJLQEN, title: Daily Score}
+    foreground: '#E0F5FF'
+    role: message
+    wrap_on: never
+  type: DataGrid
+- components:
+  - layout_properties: {}
+    name: repeating_panel_1_copy
+    properties: {background: 'theme:White', foreground: 'theme:Primary 500', item_template: ratings.RowTemplate2}
+    type: RepeatingPanel
+  layout_properties: {grid_position: 'DAUSOG,ONKCBA'}
+  name: data_grid_1_copy
+  properties:
+    background: '#344D7C'
+    columns:
+    - {data_key: column_1, expand: false, id: JKSDUP, title: '', width: 55}
+    - {data_key: column_2, expand: false, id: VJQQOR, title: User, width: 162}
+    - {data_key: column_3, id: OJLQEN, title: Avg Score}
+    foreground: '#E0F5FF'
+    role: message
+    visible: false
+    wrap_on: never
+  type: DataGrid
+container:
+  properties: {role: message}
+  type: ColumnPanel
+is_package: true

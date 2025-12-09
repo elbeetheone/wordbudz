@@ -1,0 +1,101 @@
+components:
+- components:
+  - name: title
+    properties: {bold: true, font_size: 14, foreground: '', role: null, text: WordBudz}
+    type: Label
+  - layout_properties: {width: 43}
+    name: spacer_4
+    properties: {height: 32}
+    type: Spacer
+  layout_properties: {slot: nav-right}
+  name: navbar_links
+  properties: {}
+  type: FlowPanel
+- event_bindings: {click: link_1_click}
+  layout_properties: {slot: top-left-btn}
+  name: link_1
+  properties: {bold: true, font_size: 14, icon: 'fa:arrow-circle-left', spacing_above: small, text: '', underline: true}
+  type: Link
+- components:
+  - layout_properties: {grid_position: 'ZRQTGD,PXBDIU'}
+    name: instruct
+    properties: {align: center, bold: true, foreground: '#f50000', text: '!!!Please wait for the page to reload', visible: false}
+    type: Label
+  - layout_properties: {grid_position: 'TEHDZX,EESHJY'}
+    name: image_1
+    properties: {height: 274, source: _/theme/wordbudz.png, spacing_above: large}
+    type: Image
+  - event_bindings: {click: wordbud_info_click}
+    layout_properties: {grid_position: 'TEHDZX,EESHJY'}
+    name: wordbud_info
+    properties: {align: center, icon: 'fa:info-circle', spacing_above: none, spacing_below: none, text: '', visible: false}
+    type: Link
+  - layout_properties: {grid_position: 'TEHDZX,EESHJY'}
+    name: spacer_2
+    properties: {height: 18}
+    type: Spacer
+  - layout_properties: {grid_position: 'TEHDZX,EESHJY'}
+    name: repeating_panel
+    properties: {item_template: wordbudz.global_wordbuds.ItemTemplate2, visible: true}
+    type: RepeatingPanel
+  - layout_properties: {grid_position: 'TEHDZX,EESHJY'}
+    name: spacer_1
+    properties: {height: 32}
+    type: Spacer
+  - event_bindings: {click: record_click}
+    layout_properties: {grid_position: 'TEHDZX,EESHJY'}
+    name: record
+    properties: {bold: true, font: '', role: primary-color, text: Begin}
+    type: Button
+  - layout_properties: {grid_position: 'TEHDZX,EESHJY'}
+    name: countdown
+    properties: {align: center, bold: true, font: '', font_size: 30, foreground: 'theme:Primary 700', visible: false}
+    type: Label
+  - components:
+    - layout_properties: {grid_position: 'GCFLLA,YJCXGG'}
+      name: total_text
+      properties: {align: center, bold: false, font: '', font_size: 35, foreground: '#E0F5FF', text: Total}
+      type: Label
+    - layout_properties: {grid_position: 'GCFLLA,VHUQME WAUFMH,EVTLQA'}
+      name: total
+      properties: {align: center, bold: true, font: '', font_size: 35, foreground: '#E0F5FF'}
+      type: Label
+    - event_bindings: {click: share_click}
+      layout_properties: {grid_position: 'GCFLLA,VHUQME WAUFMH,FSMETP'}
+      name: share
+      properties: {align: center, font_size: 30, foreground: '#E0F5FF', icon: 'fa:share-alt', icon_align: top, spacing_above: large}
+      type: Link
+    layout_properties: {grid_position: 'TEHDZX,EESHJY'}
+    name: card_1_copy
+    properties: {background: '#c70000', col_widths: '{"YJCXGG":20,"VHUQME":40,"EVTLQA":35,"FSMETP":25}', role: message, visible: false, wrap_on: never}
+    type: ColumnPanel
+  - layout_properties: {grid_position: 'TEHDZX,EESHJY'}
+    name: spacer_3
+    properties: {height: 26}
+    type: Spacer
+  - event_bindings: {click: stage_button_click}
+    layout_properties: {grid_position: 'TEHDZX,EESHJY'}
+    name: stage_button
+    properties: {font: '', font_size: 25, icon: 'fa:arrow-circle-right', role: primary-color, text: Next Round, visible: false}
+    type: Button
+  - event_bindings: {tick: timer_1_tick}
+    layout_properties: {grid_position: 'QHTLGL,HITPMY'}
+    name: timer_1
+    properties: {}
+    type: Timer
+  - event_bindings: {tick: timer_2_tick}
+    layout_properties: {grid_position: 'GVWJEI,XOWZBE'}
+    name: timer_2
+    properties: {}
+    type: Timer
+  layout_properties: {slot: default}
+  name: card_1
+  properties: {role: scroll}
+  type: ColumnPanel
+container:
+  properties: {html: '@theme:standard-page.html'}
+  type: HtmlTemplate
+custom_component: false
+events: []
+is_package: true
+properties: []

@@ -1,0 +1,67 @@
+components:
+- layout_properties: {grid_position: 'FLBADS,GCQYGS'}
+  name: card_4
+  properties: {role: message}
+  type: ColumnPanel
+- components:
+  - components:
+    - layout_properties: {grid_position: 'LSMOTG,NOKCJJ'}
+      name: headline_1
+      properties: {align: center, bold: true, font_size: 25, foreground: '#E0F5FF', role: headline, spacing_above: large, text: Price Structure, underline: true}
+      type: Label
+    - components:
+      - components:
+        - layout_properties: {grid_position: 'LFFEET,JHHDSO'}
+          name: label_1
+          properties: {align: center, background: '', bold: true, font_size: 30, foreground: '', icon: '', role: multicolored_text, text: $3.99, underline: false}
+          type: Label
+        layout_properties: {grid_position: 'UACUVY,MKWIKU'}
+        name: card_6
+        properties: {background: 'theme:White', role: message2}
+        type: ColumnPanel
+      layout_properties: {grid_position: 'NQCDQF,QJBVMT'}
+      name: card_3
+      properties: {role: message}
+      type: ColumnPanel
+    - components:
+      - layout_properties: {grid_position: 'YDATGB,QBPRWU'}
+        name: label_2
+        properties:
+          align: center
+          background: theme:White
+          bold: true
+          font_size: 16
+          foreground: theme:Primary 500
+          spacing_above: large
+          spacing_below: large
+          text: |2+
+
+            Game Bundle Pricing
+            Get 30 engaging games featuring 150 words for just $3.99 USD.
+
+            All bundles are priced at this rate, ensuring consistent value across all purchases.
+
+          underline: false
+        type: Label
+      layout_properties: {grid_position: 'UROEYH,BSMOFD'}
+      name: card_7
+      properties: {role: message}
+      type: ColumnPanel
+    - layout_properties: {grid_position: 'KWYVOR,KGVNRH'}
+      name: spacer_1
+      properties: {height: 32}
+      type: Spacer
+    layout_properties: {grid_position: 'CJUIZN,EGDGJQ'}
+    name: card_2
+    properties: {background: 'theme:Primary 500', role: message2}
+    type: ColumnPanel
+  layout_properties: {grid_position: 'FLBADS,GSRIZB'}
+  name: card_1
+  properties: {role: message, wrap_on: never}
+  type: ColumnPanel
+- layout_properties: {grid_position: 'FLBADS,KEPDTD'}
+  name: card_5
+  properties: {role: message}
+  type: ColumnPanel
+container: {type: ColumnPanel}
+is_package: true

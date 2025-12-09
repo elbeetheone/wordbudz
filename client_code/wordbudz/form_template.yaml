@@ -1,0 +1,175 @@
+components:
+- event_bindings: {tick: timer_1_tick}
+  layout_properties: {grid_position: 'CHQUJD,BWOSPL'}
+  name: timer_1
+  properties: {}
+  type: Timer
+- components:
+  - components:
+    - layout_properties: {grid_position: 'LVZAJL,SWIQRG'}
+      name: image_1
+      properties: {background: '', height: 191, role: message, source: _/theme/wordbudz.png, spacing_above: none, spacing_below: none}
+      type: Image
+    - layout_properties: {grid_position: 'RRSHUS,GXHFNT'}
+      name: spacer_1_copy_copy_2_copy
+      properties: {height: 17}
+      type: Spacer
+    - components:
+      - layout_properties: {grid_position: 'RTHFLU,JJWVOH'}
+        name: label_1
+        properties: {align: center, bold: true, font_size: 30, foreground: 'theme:Primary 500', spacing_above: none, spacing_below: medium}
+        type: Label
+      - layout_properties: {grid_position: 'OFXUXA,NVVCML'}
+        name: date
+        properties: {align: center, background: 'theme:Primary 700', bold: true, font_size: 12, foreground: 'theme:Primary 500', icon: 'fa:calendar', role: message2, spacing_above: none, spacing_below: none}
+        type: Label
+      layout_properties: {grid_position: 'QMRTHX,USSVWR'}
+      name: card_2
+      properties: {background: 'theme:Gray 50', role: message, spacing_above: none, spacing_below: none, wrap_on: never}
+      type: ColumnPanel
+    layout_properties: {grid_position: 'LQLBIA,FACDSY'}
+    name: card_3
+    properties: {background: 'theme:Gray 200', role: message, spacing_above: none, spacing_below: medium}
+    type: ColumnPanel
+  - components:
+    - components:
+      - event_bindings: {click: button_3_click}
+        layout_properties: {grid_position: 'DRQMNP,NCSGNE'}
+        name: button_3
+        properties: {background: '#344D7C', bold: true, font_size: 25, foreground: 'theme:White', icon: 'fa:calendar-check-o', text: Daily Game}
+        type: Button
+      - layout_properties: {grid_position: 'RNUYKE,XLVUXO'}
+        name: label_3
+        properties:
+          align: center
+          font_size: 12
+          foreground: theme:White
+          icon: fa:arrow-right
+          icon_align: right_edge
+          spacing_above: none
+          spacing_below: none
+          text: |
+            📅 One Day, One Game – Endless Fun! 🔥
+        type: Label
+      event_bindings: {click: daily_game_click}
+      layout_properties: {grid_position: 'HQYXMQ,YBPWMG'}
+      name: daily_game
+      properties: {align: center, background: '#344D7C', bold: true, font_size: 25, icon: '', role: message, spacing_below: medium, text: ''}
+      type: Link
+    - components:
+      - layout_properties: {grid_position: 'AEPWUN,DHEZWN'}
+        name: label_4
+        properties:
+          align: center
+          bold: true
+          font_size: 12
+          foreground: theme:Primary 500
+          spacing_above: none
+          spacing_below: none
+          text: |
+            📶 Track Your Progress With Your Average and Recent Scores! 📈
+        type: Label
+      - components:
+        - event_bindings: {click: button_2_click}
+          layout_properties: {grid_position: 'OWTOCD,OGVXUT'}
+          name: button_2
+          properties: {background: '#FFC0CB', bold: true, font_size: 25, foreground: 'theme:Primary 500', icon: 'fa:bar-chart-o', spacing_above: none, spacing_below: none, text: Stats}
+          type: Button
+        event_bindings: {click: stats_click}
+        layout_properties: {grid_position: 'FODZPB,SHJTYK'}
+        name: stats
+        properties: {align: center, background: '#FFC0CB', bold: true, font_size: 25, icon: '', role: message, text: ''}
+        type: Link
+      - components:
+        - event_bindings: {click: rank_click}
+          layout_properties: {grid_position: 'DRALVW,ODNFBN'}
+          name: rank
+          properties: {background: '#FF0000', bold: true, font_size: 25, foreground: '#E0F5FF', icon: 'fa:sort-numeric-asc', spacing_above: none, spacing_below: none, text: Rank}
+          type: Button
+        event_bindings: {click: ranking_click}
+        layout_properties: {grid_position: 'FODZPB,MVPIUX'}
+        name: ranking
+        properties: {align: center, background: '#FF0000', bold: true, font_size: 25, foreground: '#E0F5FF', icon: '', role: message, text: ''}
+        type: Link
+      - layout_properties: {grid_position: 'WPLXUA,IXISUS'}
+        name: label_4_copy
+        properties:
+          align: center
+          bold: true
+          font_size: 12
+          foreground: theme:Primary 500
+          spacing_above: none
+          spacing_below: none
+          text: |
+            🏆 See How You Compare Against Users from Around the World! 🌎
+        type: Label
+      layout_properties: {grid_position: 'JTCUIM,EKNBUA'}
+      name: card_6
+      properties: {background: 'theme:Gray 200', role: message, spacing_above: none, spacing_below: medium, wrap_on: never}
+      type: ColumnPanel
+    layout_properties: {grid_position: 'YZXDUI,QCYDXG'}
+    name: card_5
+    properties: {background: '#E0F5FF', col_widths: '{}', role: message, spacing_above: none, spacing_below: medium, wrap_on: never}
+    type: ColumnPanel
+  - components:
+    - layout_properties: {grid_position: 'YVUZWN,UHREBV'}
+      name: label_3_copy
+      properties:
+        align: center
+        font_size: 12
+        icon: fa:arrow-right
+        icon_align: right_edge
+        spacing_above: none
+        spacing_below: none
+        text: |
+          🏆Test Your Mettle in Our Weekly Leagues! 🌎
+          👥 Create a Private League and Invite Friends/Classmates to Join! 🎉
+      type: Label
+    - event_bindings: {click: league_click}
+      layout_properties: {grid_position: 'TXCXGN,PEMZIF'}
+      name: league
+      properties: {background: '#A020F0', bold: true, font_size: 30, foreground: '#E0F5FF', icon: 'fa:trophy', spacing_above: none, spacing_below: none, text: WordBudz League}
+      type: Button
+    event_bindings: {click: link_1_copy_2_click}
+    layout_properties: {grid_position: 'UQPCVZ,NULCYV'}
+    name: link_1_copy_2
+    properties: {align: center, background: '#A020F0', bold: true, col_widths: '{}', font_size: 30, foreground: '#E0F5FF', icon: '', role: message, spacing_below: medium, text: '', wrap_on: never}
+    type: Link
+  - components:
+    - components:
+      - layout_properties: {grid_position: 'EUJUKG,PORXFX'}
+        name: label_2
+        properties: {align: center, font_size: 12, foreground: 'theme:Primary 500', icon: 'fa:arrow-right', icon_align: right_edge, spacing_above: none, spacing_below: none, text: 🛍️ Define Who You Are with Our Products – Unleash Your Style! 🤟🏾}
+        type: Label
+      - event_bindings: {click: merch_click}
+        layout_properties: {grid_position: 'TQRZNP,HDVUNI'}
+        name: merch
+        properties: {background: '#FFD700', bold: true, font_size: 30, foreground: 'theme:Primary 500', icon: 'fa:briefcase', role: null, spacing_above: none, spacing_below: none, text: Merch}
+        type: Button
+      layout_properties: {grid_position: 'KDYRDJ,MIFHBL'}
+      name: card_4
+      properties: {background: '#FFD700', role: message, spacing_above: none, spacing_below: medium, wrap_on: never}
+      type: ColumnPanel
+    event_bindings: {click: link_1_click}
+    layout_properties: {grid_position: 'RKNMQA,HELWVT'}
+    name: link_1
+    properties: {}
+    type: Link
+  - event_bindings: {click: button_1_click}
+    layout_properties: {grid_position: 'VAUEDI,BYTLJY'}
+    name: button_1
+    properties: {background: '', foreground: 'theme:Primary 500', icon: 'fa:arrow-left', spacing_above: none, spacing_below: none, text: back}
+    type: Button
+  - event_bindings: {click: how_to_click}
+    layout_properties: {grid_position: 'VAUEDI,XRQBXW'}
+    name: how_to
+    properties: {background: '', font_size: 14, foreground: 'theme:Primary 500', icon: 'fa:info-circle', spacing_above: none, spacing_below: none, text: How to play}
+    type: Button
+  layout_properties: {grid_position: 'CHQUJD,ADBCLH'}
+  name: card_1
+  properties: {background: '', role: message, wrap_on: never}
+  type: ColumnPanel
+container:
+  properties: {background: '', col_widths: '{}'}
+  type: ColumnPanel
+is_package: true
