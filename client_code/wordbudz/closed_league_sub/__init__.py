@@ -77,4 +77,4 @@ class closed_league_sub(closed_league_subTemplate):
 
   def home_click(self, **event_args):
     """This method is called when the button is clicked"""
-    open_form('wordbudz.League')
+    open_form('wordbudz')
