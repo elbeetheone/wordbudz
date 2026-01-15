@@ -6,7 +6,7 @@ components:
     type: Label
   - layout_properties: {grid_position: 'QRDDHH,NVZALN'}
     name: label_3
-    properties: {align: right, foreground: 'theme:Primary 500', icon: 'fa:gamepad', icon_align: right, text: Speakeasi}
+    properties: {align: right, foreground: 'theme:Primary 500', icon: 'fa:gamepad', icon_align: right, text: Wordbudz}
     type: Label
   layout_properties: {grid_position: 'UHVUKN,ITZQHB'}
   name: card_5

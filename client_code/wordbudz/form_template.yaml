@@ -155,11 +155,6 @@ components:
     name: link_1
     properties: {}
     type: Link
-  - event_bindings: {click: button_1_click}
-    layout_properties: {grid_position: 'VAUEDI,BYTLJY'}
-    name: button_1
-    properties: {background: '', foreground: 'theme:Primary 500', icon: 'fa:arrow-left', spacing_above: none, spacing_below: none, text: back}
-    type: Button
   - event_bindings: {click: how_to_click}
     layout_properties: {grid_position: 'VAUEDI,XRQBXW'}
     name: how_to
