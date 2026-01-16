@@ -143,7 +143,7 @@ def next_stage(user, ratings, route):
 
 @anvil.server.callable
 def generate_username(username, email):
-    row = app_tables.users.get (username='ace_it')
+    row = app_tables.users.get (username='word')
     if any(char in username for char in '#$&@-*%$!+=') or len(username) < 4 or '@' not in email:
       return 'void'
     if username in row['user_words'].keys():

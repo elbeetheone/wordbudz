@@ -23,11 +23,15 @@ class username(usernameTemplate):
     username = self.username.text
     email = self.email.text
     ans = anvil.server.call('generate_username', username, email)
-    if ans != 'void':
-      open_form('wordbudz')
-    if ans == 'void':
-      n = Notification("Please choose another username!")
-      n.show()
+    try:
+      if ans != 'void':
+        open_form('wordbudz')
+      if ans == 'void':
+        n = Notification("Please choose another username!")
+        n.show()
+    except Exception as e:
+      print(e)
+      open_form('username')
 
   def username_pressed_enter(self, **event_args):
     """This method is called when the user presses Enter in this text box"""
