@@ -106,7 +106,9 @@ class global_wordbuds(global_wordbudsTemplate):
 ⬛🟦 {"%.2f" %(glo_score[2])}
 ⬛🟦 {"%.2f" %(glo_score[3])}
 ⬛🟦 {"%.2f" %(glo_score[4])}
+____________
 🟥🟥 {"%.2f" %(sum(glo_score))}
+____________
 Can you beat my score?
 Download & Play @ https://rb.gy/dfzb5p/#word'''
                 )
