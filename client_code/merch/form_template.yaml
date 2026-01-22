@@ -101,12 +101,12 @@ components:
     - event_bindings: {click: button_1_click}
       layout_properties: {grid_position: 'AFVLVZ,MGUPWH'}
       name: button_1
-      properties: {enabled: false, icon: 'fa:cart-plus', role: primary-color, text: add to cart}
+      properties: {enabled: true, icon: 'fa:cart-plus', role: primary-color, text: add to cart}
       type: Button
     - event_bindings: {click: button_4_click}
       layout_properties: {grid_position: 'NJYUJG,AIZXYR'}
       name: button_4
-      properties: {enabled: false, icon: 'fa:eye', role: primary-color, text: view cart, visible: true}
+      properties: {enabled: true, icon: 'fa:eye', role: primary-color, text: view cart, visible: true}
       type: Button
     - event_bindings: {click: button_2_click}
       layout_properties: {grid_position: 'YGSBNZ,JGSLDQ'}
@@ -116,7 +116,7 @@ components:
     - event_bindings: {click: button_5_click}
       layout_properties: {grid_position: 'BGEEIM,JSJTFH'}
       name: button_5
-      properties: {enabled: false, icon: 'fa:reorder', role: primary-color, text: track orders}
+      properties: {enabled: true, icon: 'fa:reorder', role: primary-color, text: track orders}
       type: Button
     layout_properties: {grid_position: 'XXCNFZ,RJHJWF'}
     name: card_3

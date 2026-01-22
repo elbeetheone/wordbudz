@@ -268,7 +268,7 @@ def league_len(user, route):
 
 @anvil.server.callable  
 def message(user, name, email, message):
-  row= get_user_row('speakeasi')
+  row= get_user_row('admin')
   text = row['name']
   text = f'{user} {name} {email} \n{message}'
   row['name'] = text

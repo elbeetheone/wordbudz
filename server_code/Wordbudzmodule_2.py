@@ -252,7 +252,7 @@ def assetlinks():
       "relation": ["delegate_permission/common.handle_all_urls"],
       "target": {
         "namespace": "android_app",
-        "package_name": "app.speakeasi.wordbudz.twa",
+        "package_name": "app.admin.wordbudz.twa",
         "sha256_cert_fingerprints": ["46:8F:67:57:97:86:BF:37:F8:2F:C5:6D:C3:D8:DC:EF:10:61:6D:1F:92:12:C6:1E:72:F6:2B:6B:B1:37:10:72"]
       }
     }]
