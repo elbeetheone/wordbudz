@@ -110,7 +110,7 @@ ____________
 🟥🟥 {"%.2f" %(sum(glo_score))}
 ____________
 Can you beat my score?
-Download & Play @ https://rb.gy/dfzb5p/#word'''
+Download & Play @ https://rb.gy/api4sx'''
                 )
 
 
