@@ -184,17 +184,17 @@ def attach_pos(route, user):
   def rank_users(score_key, extra_fields=None):
     if score_key == 'current_score':
       sorted_users = sorted(
-        [(u, d) for u, d in data.items() if d[-1].get('last_played') == str(date.today())],
+        [(u, d) for u, d in data.items() if isinstance(d, list) and len(d) > 2 and isinstance(d[-1], dict) and d[-1].get('last_played') == str(date.today())],
         key=lambda x: x[1][-1][score_key],
         reverse=True
       )
     else:
       sorted_users = sorted(
-        [(u, d) for u, d in data.items() if d[-1].get('Played_time') != 0],
+        [(u, d) for u, d in data.items() if isinstance(d, list) and len(d) > 2 and isinstance(d[-1], dict) and d[-1].get('Played_time', 0) != 0],
         key=lambda x: x[1][-1][score_key],
         reverse=True
       )
-    # a lot to unpack. Essentially testing if player played today for the daily game. Or has played at all for the league.
+
     ranked = []
     for rank, (u, details) in enumerate(sorted_users, start=1):
       entry = {
