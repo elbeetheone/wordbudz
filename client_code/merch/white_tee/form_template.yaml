@@ -6,7 +6,7 @@ components:
 - components:
   - layout_properties: {grid_position: 'CFQUMV,WBKJNB'}
     name: label_1
-    properties: {align: center, bold: true, font: '', font_size: 18, foreground: 'theme:Primary 500', text: WordBudz, underline: false}
+    properties: {align: center, bold: true, font: '', font_size: 18, foreground: 'theme:Primary 500', spacing_above: none, spacing_below: none, text: WordBudz, underline: false}
     type: Label
   - layout_properties: {grid_position: 'HPBLPV,ASQYHG RGPWQO,DWVQFM'}
     name: spacer_2
