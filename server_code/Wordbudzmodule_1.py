@@ -23,14 +23,16 @@ def budzscore():
   foo = anvil.server.request.body_json["foo"].split(',')
   user_words = anvil.server.request.body_json["user_words"].split(',')
   
-  if user in row['user_words'].keys():
-    Played_time = row['user_words'][user][-1].get('Played_time', 0) 
-    avg_score = row['user_words'][user][-1].get('avg_score', 0) 
-    total_score = row['user_words'][user][-1].get('total_score', 0) 
+  if user in row['user_words']:
+    last_item = row['user_words'][user][-1]
+    if isinstance(last_item, dict):
+      Played_time = last_item.get('Played_time', 0)
+      avg_score = last_item.get('avg_score', 0)
+      total_score = last_item.get('total_score', 0)
+    else:
+      Played_time = avg_score = total_score = 0
   else:
-    Played_time = 0
-    avg_score = 0
-    total_score = 0
+    Played_time = avg_score = total_score = 0
   nu_list = []
   for num in range(5):
     nu_list.append({'word':foo[num], 'scores': score[num], 'synonym': user_words[num]})
@@ -63,12 +65,15 @@ def get_avgs(route, user):
 
 @anvil.server.callable
 def check_playtime(user, route):
-    row = get_user_row(route)
-    user_words = row['user_words'].get(user, [])
-    if user_words:  # Check if the list is not empty
-      last_played = user_words[-1].get("last_played", 0)
-      return last_played
-      return 0  # Return 0 if the list is empty or user not found
+  row = get_user_row(route)
+  user_words = row['user_words'].get(user, [])
+
+  # Loop backwards through the list to find the first dictionary with last_played
+  for item in reversed(user_words):
+    if isinstance(item, dict) and "last_played" in item:
+      return item["last_played"]
+
+  return 0  # Return 0 if no valid last_played found
 
 @anvil.server.callable
 def check_playtime_league(user, route):
@@ -81,6 +86,7 @@ def check_playtime_league(user, route):
 @anvil.server.callable
 def len_league(route):
   row = get_user_row(route)
+  # print(len(row['today_words']))
   return len(row['today_words'])
 
 #Deleted daily stage. Will create scheduled task to delete daily rank and words

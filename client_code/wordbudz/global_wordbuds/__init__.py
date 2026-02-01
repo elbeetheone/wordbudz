@@ -26,6 +26,7 @@ class global_wordbuds(global_wordbudsTemplate):
     self.stage = str(datetime.now(timezone.utc))[:10] #universal time across zones
 
     if self.stage != anvil.server.call_s("check_playtime", self.link_1.text, 'word'):
+      print('here')
       #if today's date is not the last played date, upload new game
       self.user_words = anvil.server.call_s("get_words", 'word')[0]
       self.foo = ", ".join(self.user_words).replace(" ", "")

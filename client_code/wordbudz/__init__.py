@@ -44,7 +44,7 @@ class wordbudz(wordbudzTemplate):
         open_form('wordbudz.global_wordbuds')
     except Exception as e:
       print(e)
-      pass
+      # pass
 
   def ranking_click(self, **event_args):
     """This method is called when the link is clicked"""
