@@ -37,11 +37,22 @@ class item_(item_Template):
 
   def button_1_click(self, **event_args):
     """This method is called when the button is clicked"""
-    #take sum of items and pass to stripe. Upsate dict to paid afterwards if succesful
+    #take sum of items and pass to stripe. Update dict to paid afterwards if successful
     if self.address.text in [None, '']:
       alert('Please supply a delivery address')
     else:
-      anvil.server.call_s('store_addy', self.user, self.address.text, self.country.selected_value)
-      c = stripe.checkout.charge(currency="USD", amount=sum([item["price"] for item in self.item_list if "price" in item])*100)
-      print(c)
+      try:
+        anvil.server.call_s('store_addy', self.user, self.address.text, self.country.selected_value)
+        c = stripe.checkout.charge(
+          currency="USD", 
+          amount=sum([item["price"] for item in self.item_list if "price" in item]) * 100,
+          icon_url="_/theme/download.png"
+        )
+        if c['result'] == 'succeeded':
+          anvil.server.call('upgrade_user', self.user.text)
+          open_form('dashboard')
+      except Exception as e:
+        alert(e)
+        
+
 
