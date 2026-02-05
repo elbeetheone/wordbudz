@@ -117,15 +117,13 @@ native_deps:
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Raleway:wght@100&display=swap" rel="stylesheet">
-
-
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="SpeakEasi - Fear Not; Speak Boldly">
     <meta name="twitter:description" content="Conquer your public speaking fear with just a few minutes daily. Develop charisma and confidence with our fun word games.">
     <meta name="twitter:image" content="https://speakeasi.app/_/theme/logo-white%5B1%5D-logo.png">
     <meta name="twitter:image:alt" content="https://speakeasi.app/_/theme/speakeasi-favicon-color.svg">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script>
       function copyclip(texttocopy) {
         // Create new element
@@ -146,13 +144,19 @@ native_deps:
       function redirectToRelativeURL(relativeURL) {
         // Construct absolute URL based on the current location
         const absoluteURL = new URL(relativeURL, window.location.href);
-
         // Log the absolute URL (optional)
         console.log('Redirecting to:', absoluteURL.href);
-
         // Redirect to the absolute URL
         window.location.href = absoluteURL.href;
       }
+      window.cardToPNG = function(componentElement, filename) {
+        html2canvas(componentElement).then(function(canvas) {
+          const link = document.createElement('a');
+          link.download = filename || 'export.png';
+          link.href = canvas.toDataURL();
+          link.click();
+        });
+      };
     </script>
 package_name: wordbudz
 runtime_options:
