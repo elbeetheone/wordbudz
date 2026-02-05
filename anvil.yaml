@@ -113,7 +113,47 @@ dependencies: []
 metadata: {description: Find Your Word a Bud., logo_img: 'asset:download.png', title: WordBudz}
 name: WordBudz
 native_deps:
-  head_html: "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link href=\"https://fonts.googleapis.com/css2?family=Handlee&family=Raleway:wght@100&display=swap\" rel=\"stylesheet\">\n\n\n\n<!-- Twitter Card Meta Tags -->\n<meta name=\"twitter:card\" content=\"summary_large_image\">\n<meta name=\"twitter:title\" content=\"SpeakEasi - Fear Not; Speak Boldly\">\n<meta name=\"twitter:description\" content=\"Conquer your public speaking fear with just a few minutes daily. Develop charisma and confidence with our fun word games.\">\n<meta name=\"twitter:image\" content=\"https://speakeasi.app/_/theme/logo-white%5B1%5D-logo.png\">\n<meta name=\"twitter:image:alt\" content=\"https://speakeasi.app/_/theme/speakeasi-favicon-color.svg\">\n\n<script>\n    function copyclip(texttocopy) {\n      // Create new element\n      var el = document.createElement('textarea');\n      // Set value (string to be copied)\n      el.value = texttocopy;\n      // Set non-editable to avoid focus and move outside of view\n      el.setAttribute('readonly', '');\n      el.style = {position: 'absolute', left: '-9999px'};\n      document.body.appendChild(el);\n      // Select text inside element\n      el.select();\n      // Copy text to clipboard\n      document.execCommand('copy');\n      // Remove temporary element\n      document.body.removeChild(el);\n    }\nfunction redirectToRelativeURL(relativeURL) {\n    // Construct absolute URL based on the current location\n    const absoluteURL = new URL(relativeURL, window.location.href);\n\n    // Log the absolute URL (optional)\n    console.log('Redirecting to:', absoluteURL.href);\n\n    // Redirect to the absolute URL\n    window.location.href = absoluteURL.href;\n}\n\n  \n</script>"
+  head_html: |-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Raleway:wght@100&display=swap" rel="stylesheet">
+
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SpeakEasi - Fear Not; Speak Boldly">
+    <meta name="twitter:description" content="Conquer your public speaking fear with just a few minutes daily. Develop charisma and confidence with our fun word games.">
+    <meta name="twitter:image" content="https://speakeasi.app/_/theme/logo-white%5B1%5D-logo.png">
+    <meta name="twitter:image:alt" content="https://speakeasi.app/_/theme/speakeasi-favicon-color.svg">
+
+    <script>
+      function copyclip(texttocopy) {
+        // Create new element
+        var el = document.createElement('textarea');
+        // Set value (string to be copied)
+        el.value = texttocopy;
+        // Set non-editable to avoid focus and move outside of view
+        el.setAttribute('readonly', '');
+        el.style = {position: 'absolute', left: '-9999px'};
+        document.body.appendChild(el);
+        // Select text inside element
+        el.select();
+        // Copy text to clipboard
+        document.execCommand('copy');
+        // Remove temporary element
+        document.body.removeChild(el);
+      }
+      function redirectToRelativeURL(relativeURL) {
+        // Construct absolute URL based on the current location
+        const absoluteURL = new URL(relativeURL, window.location.href);
+
+        // Log the absolute URL (optional)
+        console.log('Redirecting to:', absoluteURL.href);
+
+        // Redirect to the absolute URL
+        window.location.href = absoluteURL.href;
+      }
+    </script>
 package_name: wordbudz
 runtime_options:
   client_version: '3'
