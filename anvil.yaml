@@ -150,10 +150,18 @@ native_deps:
         window.location.href = absoluteURL.href;
       }
       window.cardToPNG = function(componentElement, filename) {
-        html2canvas(componentElement).then(function(canvas) {
+        html2canvas(componentElement, {
+          scale: 3,
+          useCORS: true,
+          allowTaint: true,
+          backgroundColor: '#ffffff',
+          logging: false,
+          width: componentElement.scrollWidth,
+          height: componentElement.scrollHeight
+        }).then(function(canvas) {
           const link = document.createElement('a');
           link.download = filename || 'export.png';
-          link.href = canvas.toDataURL();
+          link.href = canvas.toDataURL('image/png', 1.0);
           link.click();
         });
       };
@@ -236,6 +244,6 @@ services:
 - client_config: {}
   server_config: {}
   source: /runtime/services/stripe.yml
-startup: {module: username, type: form}
+startup: {module: merch.black_tee, type: form}
 startup_form: null
 uplink_visible: true
