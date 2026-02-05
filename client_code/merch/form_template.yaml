@@ -3,15 +3,15 @@ components:
   - event_bindings: {click: link_2_click}
     layout_properties: {grid_position: 'XZBJAP,LXSAAG'}
     name: link_2
-    properties: {align: center, bold: true, font_size: 35, foreground: 'theme:Primary 700', role: null, text: The 'You' Definition}
+    properties: {align: center, bold: true, font_size: 35, foreground: 'theme:Primary 700', role: null, text: The You Definition}
     type: Link
   - layout_properties: {grid_position: 'COSSAN,ODAFBJ'}
     name: label_1
-    properties: {align: center, bold: true, foreground: '#ff0000', text: Coming Soon!!!, underline: true}
+    properties: {align: center, bold: true, foreground: '#ff0000', text: Coming Soon!!!, underline: true, visible: false}
     type: Label
   - layout_properties: {grid_position: 'CUCGUS,PUWSRW'}
     name: label_2
-    properties: {align: center, text: 'Choose a size and color, then customize by editing your username and the corresponding label.'}
+    properties: {align: center, text: 'Select a size and color, then choose your name and label!'}
     type: Label
   - components:
     - components:
