@@ -1,9 +1,4 @@
 components:
-- event_bindings: {}
-  layout_properties: {slot: default}
-  name: button_1
-  properties: {text: button_1}
-  type: Button
 - layout_properties: {slot: default}
   name: spacer_1
   properties: {height: 145}
