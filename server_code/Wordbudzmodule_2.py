@@ -94,20 +94,37 @@ def check_league_create(league, foo):
 
 @anvil.server.callable
 def order_fill(user, item, id):
-    row = app_tables.users.get (username='admin')
-    nu_dict = row['merch']
-    # Set a default color key value
+  row = app_tables.users.get(username='admin')
+  nu_dict = row['merch']
+
+  # Determine color based on item description
+  if 'Black' in item:
+    color_key = 'black'
+  elif 'White' in item:
     color_key = 'white'
-    if user not in row['merch'].keys():
-        if 'black' in item:
-            color_key = 'black'
-        elif 'white' in item:
-            color_key = 'white'
-        nu_dict[user] = [{'item_description': item, 'Status': 'Added to Cart', 'price': row['Prices'][color_key], 'trans_id': id, 'num_item':1, 'date': str(date.today())}]
-        row['merch'] = nu_dict
-    elif user in row['merch'].keys():
-        nu_dict[user].append({'item_description': item, 'Status': 'Added to Cart', 'price': row['Prices'][color_key], 'trans_id': id, 'num_item':1, 'date': str(date.today())})
-        row['merch'] = nu_dict
+  else:
+    color_key = 'white'  # Default fallback
+
+  if user not in row['merch'].keys():
+    nu_dict[user] = [{
+      'item_description': item,
+      'Status': 'Added to Cart',
+      'price': row['Prices'][color_key],
+      'trans_id': id,
+      'num_item': 1,
+      'date': str(date.today())
+    }]
+    row['merch'] = nu_dict
+  elif user in row['merch'].keys():
+    nu_dict[user].append({
+      'item_description': item,
+      'Status': 'Added to Cart',
+      'price': row['Prices'][color_key],
+      'trans_id': id,
+      'num_item': 1,
+      'date': str(date.today())
+    })
+    row['merch'] = nu_dict
 
 
 
