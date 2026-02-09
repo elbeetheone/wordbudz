@@ -144,7 +144,7 @@ components:
       - event_bindings: {click: merch_click}
         layout_properties: {grid_position: 'TQRZNP,HDVUNI'}
         name: merch
-        properties: {background: '#FFD700', bold: true, font_size: 30, foreground: 'theme:Primary 500', icon: 'fa:briefcase', role: null, spacing_above: none, spacing_below: none, text: You Defined Merch}
+        properties: {background: '#FFD700', bold: true, font_size: 30, foreground: 'theme:Primary 500', icon: 'fa:briefcase', role: null, spacing_above: none, spacing_below: none, text: The You Definition}
         type: Button
       layout_properties: {grid_position: 'KDYRDJ,MIFHBL'}
       name: card_4
