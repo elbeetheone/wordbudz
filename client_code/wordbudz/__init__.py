@@ -60,7 +60,7 @@ class wordbudz(wordbudzTemplate):
 
   def league_click(self, **event_args):
     """This method is called when the button is clicked"""
-    open_form('wordbudz.closed_league_sub')
+    open_form('wordbudz.League')
 
   def link_1_copy_2_click(self, **event_args):
     """This method is called when the link is clicked"""

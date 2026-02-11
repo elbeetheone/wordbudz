@@ -13,8 +13,14 @@ class closed_league_sub(closed_league_subTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    self.code.text = ''.join([random.choice('1234567890') for _ in range(6)])
-    self.timer_1.interval = 0
+    self.user = anvil.server.call_s("test_cookie")
+    self.closer = anvil.server.call_s("check_closed_league", self.user)
+
+    if self.closer != "proceed":
+      open_form('wordbudz.League_copy')
+    else:
+      self.code.text = ''.join([random.choice('1234567890') for _ in range(6)])
+      self.timer_1.interval = 0
 
     # Any code you write here will run before the form opens.
 
@@ -30,7 +36,7 @@ class closed_league_sub(closed_league_subTemplate):
       amount = self.games.text * (3.99/30)
       try:
         c = stripe.checkout.charge(currency="USD", amount=amount*100,
-                                   icon_url=anvil.server.get_app_origin()+"_/theme/-high-resolution-logo-transparent.png")
+                                   icon_url="_/theme/download.png")
         if c['result'] == 'succeeded':
           self.create_game()
       except Exception as e:

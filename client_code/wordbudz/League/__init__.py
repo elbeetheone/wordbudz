@@ -12,27 +12,28 @@ class League(LeagueTemplate):
     self.init_components(**properties)
     self.user = anvil.server.call_s('test_cookie')
     self.league = anvil.server.call('check_league', self.user)
+    self.closed_click()
     
-    if self.league != 'proceed':
+    # if self.league != 'proceed':
       
-      self.card_5.visible, self.card_1.visible, self.label_5.text = True, False, self.league
+    #   self.card_5.visible, self.card_1.visible, self.label_5.text = True, False, self.league
 
-    self.nu_dict = {'Odin League': '1st Tier',
-                    'Apollo League': '2nd Tier',
-                    'Ra League': '3rd Tier',
-                    'Xango League': '4th Tier',
-                    'Shiva League': '5th Tier',
-                    'Hera League': '6th Tier',
-                    'Hades League': '7th Tier',
-                    'Anubis League': '8th Tier',
-                    'Osiris League': '9th Tier',
-                    'Vulcan League': '10th Tier'}
+    # self.nu_dict = {'Odin League': '1st Tier',
+    #                 'Apollo League': '2nd Tier',
+    #                 'Ra League': '3rd Tier',
+    #                 'Xango League': '4th Tier',
+    #                 'Shiva League': '5th Tier',
+    #                 'Hera League': '6th Tier',
+    #                 'Hades League': '7th Tier',
+    #                 'Anubis League': '8th Tier',
+    #                 'Osiris League': '9th Tier',
+    #                 'Vulcan League': '10th Tier'}
 
-    if len(self.label_5.text) > 1:
-      self.label_6.text = self.nu_dict[self.label_5.text] #arbitrary code, probably better ways to logicalize this
-    self.repeating_panel_1.items = anvil.server.call('get_league')
-    self.data_grid_1.rows_per_page = 10
-    self.open.font_size, self.closed.font_size = 18, 10
+    # if len(self.label_5.text) > 1:
+    #   self.label_6.text = self.nu_dict[self.label_5.text] #arbitrary code, probably better ways to logicalize this
+    # self.repeating_panel_1.items = anvil.server.call('get_league')
+    # self.data_grid_1.rows_per_page = 10
+    # self.open.font_size, self.closed.font_size = 18, 10
 
     # Any code you write here will run before the form opens.
 
