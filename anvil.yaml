@@ -117,6 +117,7 @@ native_deps:
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Raleway:wght@100&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://baggy-whirlwind-plover.anvil.app/_/theme/download.png">
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="SpeakEasi - Fear Not; Speak Boldly">
