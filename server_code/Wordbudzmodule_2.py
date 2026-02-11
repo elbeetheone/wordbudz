@@ -108,7 +108,7 @@ def order_fill(user, item, id):
   if user not in row['merch'].keys():
     nu_dict[user] = [{
       'item_description': item,
-      'Status': 'Added to Cart',
+      'status': 'Added to Cart',
       'price': row['Prices'][color_key],
       'trans_id': id,
       'num_item': 1,
@@ -118,7 +118,7 @@ def order_fill(user, item, id):
   elif user in row['merch'].keys():
     nu_dict[user].append({
       'item_description': item,
-      'Status': 'Added to Cart',
+      'status': 'Added to Cart',
       'price': row['Prices'][color_key],
       'trans_id': id,
       'num_item': 1,
@@ -201,10 +201,11 @@ def item_global():
 
 @anvil.server.callable
 def item_info(user):
-  row = app_tables.users.get (username='admin')
+  row = app_tables.users.get(username='admin')
   if user in row['merch'].keys():
-    #best place to categorize. Fulfilled: (Ordered, In Transit, Delivered)
-    return row['merch'][user]
+    # Filter items with "Added to Cart" status
+    cart_items = [item for item in row['merch'][user] if item.get('status') == 'Added to Cart']
+    return cart_items
   else:
     return None
   
@@ -223,20 +224,38 @@ def trash_item(user, id):
 
 @anvil.server.callable
 def add_minus_item(user, id, func):
-  row = app_tables.users.get (username='admin')
+  row = app_tables.users.get(username='admin')
   nu_dict = row['merch']
+
   if func == 'add':
-    for num in nu_dict[user][:]:  # Iterate over a shallow copy of the list
-        if num['trans_id'] == id:
-            num['num_item'] += 1
+    for num in nu_dict[user]:
+      if num['trans_id'] == id:
+        num['num_item'] += 1
+        break  # Exit loop once found
+
   elif func == 'minus':
-    for num in nu_dict[user][:]:  # Iterate over a shallow copy of the list
-        if num['trans_id'] == id:
-            num['num_item'] -= 1
-            if num['num_item'] == 0:
-                nu_dict[user].remove(num)  # Delete the item if num_item equals 0
-  if len(nu_dict[user]) == 0:
-    del nu_dict[user] 
+    for num in nu_dict[user][:]:  # Shallow copy needed here for removal
+      if num['trans_id'] == id:
+        num['num_item'] -= 1
+        if num['num_item'] == 0:
+          nu_dict[user].remove(num)
+        break
+
+  elif func == 'charge':
+  # Update ALL items with "Added to Cart" status to "Paid"
+    for num in nu_dict[user]:
+      if num.get('status') == 'Added to Cart':  
+        num['status'] = 'Paid'  
+    # OR if you only want to update one specific item:
+    # for num in nu_dict[user]:
+    #   if num['trans_id'] == id:
+    #     num['Status'] = 'Paid'
+    #     break
+
+  # Clean up empty user entries
+  if user in nu_dict and len(nu_dict[user]) == 0:
+    del nu_dict[user]
+
   row['merch'] = nu_dict
     
 

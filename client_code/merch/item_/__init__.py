@@ -49,6 +49,9 @@ class item_(item_Template):
           icon_url="_/theme/download.png"
         )
         if c['result'] == 'succeeded':
+          for num in self.item_list:
+            anvil.server.call('add_minus_item', self.user, num['trans_id'], 'charge')
+          self.raise_event("x-close-alert", value=42)
           open_form('merch')
       except Exception as e:
         alert(e)

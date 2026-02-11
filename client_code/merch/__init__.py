@@ -121,7 +121,7 @@ class merch(merchTemplate):
     """This method is called when the button is clicked"""
     item_list = anvil.server.call('item_info', self.link_1.text)
     if item_list is not None:
-      item_list = [item for item in item_list if item['Status'] == 'Added to Cart']
+      item_list = [item for item in item_list if item['status'] == 'Added to Cart']
       if len(item_list) > 0:
         alert(item_(self.link_1.text, item_list), large=True)
       else:
