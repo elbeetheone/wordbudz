@@ -110,7 +110,7 @@ db_schema:
     server: full
     title: Users
 dependencies: []
-metadata: {description: Find Your Word a Bud., logo_img: 'asset:wb-logo.png', title: WordBudz}
+metadata: {description: Find Your Word a Bud., logo_img: 'asset:wordbudz-high-resolution-logo-white.png', title: WordBudz}
 name: WordBudz
 native_deps:
   head_html: |-
