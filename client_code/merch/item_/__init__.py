@@ -49,8 +49,7 @@ class item_(item_Template):
           icon_url="_/theme/download.png"
         )
         if c['result'] == 'succeeded':
-          anvil.server.call('upgrade_user', self.user.text)
-          open_form('dashboard')
+          open_form('merch')
       except Exception as e:
         alert(e)
         

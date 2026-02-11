@@ -243,7 +243,7 @@ services:
   server_config: {}
   source: /runtime/services/anvil/email.yml
 - client_config: {}
-  server_config: {}
+  server_config: {refresh_token: rt_Txcr4xcnYsAZSpdptV2KuiixP4fQkb2IGK4RncztSI1cfY26, stripe_user_id: acct_1Ro8eGCzNz2LET4P}
   source: /runtime/services/stripe.yml
 startup: {module: username, type: form}
 startup_form: null
