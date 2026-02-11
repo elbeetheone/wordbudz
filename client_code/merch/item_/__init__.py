@@ -23,7 +23,7 @@ class item_(item_Template):
     
 
   def reload(self, **event_args):
-    self.item_list = anvil.server.call('item_info', self.user)
+    self.item_list = anvil.server.call('item_info', self.user, 'cart')
     try:
       if self.item_list is not None:
         self.label_1.text = 'Total: $' + "%.2f" % (sum([item["price"] * item['num_item'] for item in self.item_list if "price" in item]))

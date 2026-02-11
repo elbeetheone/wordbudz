@@ -1,7 +1,7 @@
 components:
 - layout_properties: {grid_position: 'YTXMVH,NYZSUN'}
   name: label_1
-  properties: {align: center, bold: true}
+  properties: {align: center, bold: true, text: Track all your orders here}
   type: Label
 - components:
   - layout_properties: {}
@@ -13,9 +13,10 @@ components:
   properties:
     background: ''
     columns:
-    - {data_key: column_1, expand: false, id: JKSDUP, title: '', width: 146}
-    - {data_key: column_2, expand: false, id: VJQQOR, title: '', width: 157}
-    - {data_key: column_1, id: FNDNPO, title: ''}
+    - {data_key: column_1, expand: false, id: JKSDUP, title: Item, width: 122}
+    - {data_key: column_2, expand: false, id: VJQQOR, title: '', width: 56}
+    - {data_key: column_1, expand: false, id: FNDNPO, title: '', width: 144}
+    - {data_key: column_1, id: LQXMFH, title: ''}
     foreground: theme:Primary 500
     role: message
   type: DataGrid

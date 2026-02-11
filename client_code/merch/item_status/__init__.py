@@ -14,7 +14,7 @@ class item_status(item_statusTemplate):
   def __init__(self, user, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    item_list = anvil.server.call('item_info', user)
+    item_list = anvil.server.call('item_info', user, 'item')
     if item_list is None:
       self.label_1.text = 'After Ordering, Track Your Items Here'
     else:

@@ -200,12 +200,16 @@ def item_global():
   return row['merch']
 
 @anvil.server.callable
-def item_info(user):
+def item_info(user, stat):
   row = app_tables.users.get(username='admin')
   if user in row['merch'].keys():
     # Filter items with "Added to Cart" status
-    cart_items = [item for item in row['merch'][user] if item.get('status') == 'Added to Cart']
-    return cart_items
+    if stat == 'cart':
+      cart_items = [item for item in row['merch'][user] if item.get('status') == 'Added to Cart']
+      return cart_items
+    else:
+      cart_items = [item for item in row['merch'][user]]
+      return cart_items
   else:
     return None
   

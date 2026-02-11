@@ -119,7 +119,7 @@ class merch(merchTemplate):
 
   def button_4_click(self, **event_args):
     """This method is called when the button is clicked"""
-    item_list = anvil.server.call('item_info', self.link_1.text)
+    item_list = anvil.server.call('item_info', self.link_1.text, 'cart')
     if item_list is not None:
       item_list = [item for item in item_list if item['status'] == 'Added to Cart']
       if len(item_list) > 0:
