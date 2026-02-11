@@ -77,6 +77,10 @@ components:
     name: card_11
     properties: {col_widths: '{"MAZBLG":35,"DGVNHF":25}', role: message, wrap_on: never}
     type: ColumnPanel
+  - layout_properties: {grid_position: 'ZKABWJ,WYBZBT'}
+    name: label_3
+    properties: {align: center, bold: true, font_size: 15, underline: true}
+    type: Label
   - components:
     - event_bindings: {change: text_box_1_change, pressed_enter: text_box_1_pressed_enter}
       layout_properties: {grid_position: 'FIGXOP,ZYNGBD'}

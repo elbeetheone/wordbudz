@@ -263,7 +263,10 @@ def add_minus_item(user, id, func):
   row['merch'] = nu_dict
     
 
-  
+@anvil.server.callable
+def get_price():
+  row = app_tables.users.get(username='admin')
+  return row['Prices']
   
   
 

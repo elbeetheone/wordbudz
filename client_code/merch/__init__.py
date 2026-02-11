@@ -28,6 +28,8 @@ class merch(merchTemplate):
     self.button_3_copy.font_size = 18
     self.text1 = self.text_box_1.placeholder
     self.text2 = 'Awesome'
+    self.prices = anvil.server.call('get_price')
+    self.label_3.text = f"USD {self.prices['white']}"
 
     # Any code you write here will run before the form opens.
 
@@ -37,6 +39,7 @@ class merch(merchTemplate):
 
   def button_3_click(self, **event_args):
     """This method is called when the button is clicked"""
+    self.label_3.text = f"USD {self.prices['black']}"
     self.color = 'Black'
     self.button_3.font_size, self.button_3_copy.font_size = 18, 14
     if self.text_box_1.text == '' and self.text_box_2.text == '':
@@ -48,6 +51,7 @@ class merch(merchTemplate):
 
   def button_3_copy_click(self, **event_args):
     """This method is called when the button is clicked"""
+    self.label_3.text = f"USD {self.prices['white']}"
     self.color = 'White'
     self.button_3.font_size, self.button_3_copy.font_size = 14, 18
     if self.text_box_1.text == '' and self.text_box_2.text == '':
