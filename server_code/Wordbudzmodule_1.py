@@ -149,17 +149,19 @@ def next_stage(user, ratings, route):
 
 @anvil.server.callable
 def generate_username(username, email):
-    row = app_tables.users.get (username='word')
+    row = app_tables.users.get (username='admin')
     if any(char in username for char in '#$&@-*%$!+=') or len(username) < 4 or '@' not in email:
       return 'void'
     if username in row['user_words'].keys():
+      return 'void'
+    if email in row['user_words'].values():
       return 'void'
     else:
       anvil.server.cookies.local.set(300, name=username, ratings=[{"Avg_rating": 0,"Played_time": 0}], daily_ratings=[{"Avg_rating": 0,"Played_time": 0}],
                                      anchor_ratings =[{"Avg_rating": 0,"Played_time": 0}], speecheazi_ratings=[{"Avg_rating": 0,"Played_time": 0}])
 
     nu_dict = row['user_words']
-    nu_dict[username] = [0, email]
+    nu_dict[username] = email
     row['user_words'] = nu_dict    
 
 @anvil.server.callable
