@@ -48,7 +48,7 @@ class item_(item_Template):
           amount=sum([item["price"] for item in self.item_list if "price" in item]) * 100,
           icon_url="_/theme/download.png",
           title="WordBudz Store",
-          metadata= self.item_list
+          metadata={'items': str(self.item_list)}
         )
         if c['result'] == 'succeeded':
           print(c)
