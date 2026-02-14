@@ -46,9 +46,12 @@ class item_(item_Template):
         c = stripe.checkout.charge(
           currency="USD", 
           amount=sum([item["price"] for item in self.item_list if "price" in item]) * 100,
-          icon_url="_/theme/download.png"
+          icon_url="_/theme/download.png",
+          title="WordBudz Store",
+          metadata= self.item_list
         )
         if c['result'] == 'succeeded':
+          print(c)
           for num in self.item_list:
             anvil.server.call('add_minus_item', self.user, num['trans_id'], 'charge')
           self.raise_event("x-close-alert", value=42)
