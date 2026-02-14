@@ -12,8 +12,9 @@ class username(usernameTemplate):
     self.init_components(**properties)
     self.load = anvil.server.call('test_cookie')
     if self.load != 'not found':
-      self.clear()
-      self.add_component(wordbudz(), full_width_row=True)
+      # self.clear()
+      # self.add_component(wordbudz(), full_width_row=True)
+      open_form('wordbudz')
 
 
     # Any code you write here will run before the form opens.
