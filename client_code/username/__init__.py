@@ -11,6 +11,7 @@ class username(usernameTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.load = anvil.server.call('test_cookie')
+    
     if self.load != 'not found':
       # self.clear()
       # self.add_component(wordbudz(), full_width_row=True)
