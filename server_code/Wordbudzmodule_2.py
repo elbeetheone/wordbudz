@@ -227,7 +227,7 @@ def trash_item(user, id):
 
 
 @anvil.server.callable
-def add_minus_item(user, id, func):
+def add_minus_item(user, id, func, invoice_id):
   row = app_tables.users.get(username='admin')
   nu_dict = row['merch']
 
@@ -249,12 +249,8 @@ def add_minus_item(user, id, func):
   # Update ALL items with "Added to Cart" status to "Paid"
     for num in nu_dict[user]:
       if num.get('status') == 'Added to Cart':  
-        num['status'] = 'Paid'  
-    # OR if you only want to update one specific item:
-    # for num in nu_dict[user]:
-    #   if num['trans_id'] == id:
-    #     num['Status'] = 'Paid'
-    #     break
+        num['status'] = 'Paid'
+        num['invoice_id'] = invoice_id
 
   # Clean up empty user entries
   if user in nu_dict and len(nu_dict[user]) == 0:

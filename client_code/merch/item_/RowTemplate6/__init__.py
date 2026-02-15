@@ -40,10 +40,10 @@ class RowTemplate6(RowTemplate6Template):
 
   def link_2_click(self, **event_args):
     """This method is called when the link is clicked"""
-    anvil.server.call('add_minus_item', self.user, self.label_1.text, 'add')
+    anvil.server.call('add_minus_item', self.user, self.label_1.text, 'add', None)
     self.parent.raise_event('x-refresh-list')
 
   def link_3_click(self, **event_args):
     """This method is called when the link is clicked"""
-    anvil.server.call('add_minus_item', self.user, self.label_1.text, 'minus')
+    anvil.server.call('add_minus_item', self.user, self.label_1.text, 'minus', None)
     self.parent.raise_event('x-refresh-list')

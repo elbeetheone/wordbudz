@@ -8,6 +8,7 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+import random
 
 
 class item_(item_Template):
@@ -43,17 +44,17 @@ class item_(item_Template):
     else:
       try:
         anvil.server.call_s('store_addy', self.user, self.address.text, self.country.selected_value)
+        invoice_id = ''.join([random.choice('1234567890ABCDEFG') for _ in range(10)])
         c = stripe.checkout.charge(
           currency="USD", 
-          amount=sum([item["price"] for item in self.item_list if "price" in item]) * 100,
+          amount=sum([item["price"] * item["num_item"] for item in self.item_list if "price" in item]) * 100,
           icon_url="_/theme/download.png",
-          title="WordBudz Store",
-          metadata={'items': str(self.item_list)}
+          title= "WordBudz Store",
+          description= invoice_id
         )
         if c['result'] == 'succeeded':
-          print(c)
           for num in self.item_list:
-            anvil.server.call('add_minus_item', self.user, num['trans_id'], 'charge')
+            anvil.server.call('add_minus_item', self.user, num['trans_id'], 'charge', c['charge_id'])
           self.raise_event("x-close-alert", value=42)
           open_form('merch')
       except Exception as e:

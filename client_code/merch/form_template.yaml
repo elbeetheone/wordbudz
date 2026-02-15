@@ -9,11 +9,11 @@ components:
     name: label_1
     properties: {align: center, bold: true, foreground: '#ff0000', text: Coming Soon!!!, underline: true, visible: false}
     type: Label
-  - layout_properties: {grid_position: 'CUCGUS,PUWSRW'}
-    name: label_2
-    properties: {align: center, text: 'Select a size and color, then choose your name and label!'}
-    type: Label
   - components:
+    - layout_properties: {grid_position: 'MTVNNL,ZOQXQH'}
+      name: label_2
+      properties: {align: center, foreground: 'theme:Primary 500', text: 'Select a size and color, then choose your name and label!'}
+      type: Label
     - components:
       - layout_properties: {grid_position: 'BZHRWW,FLHNXP'}
         name: label_4
@@ -73,14 +73,14 @@ components:
       name: card_8_copy
       properties: {role: message, wrap_on: never}
       type: ColumnPanel
+    - layout_properties: {grid_position: 'ILOJBB,FHXDPI'}
+      name: label_3
+      properties: {align: center, bold: true, font_size: 15, foreground: 'theme:Primary 500', underline: true}
+      type: Label
     layout_properties: {grid_position: 'DIRNQF,WIWNQE'}
     name: card_11
     properties: {col_widths: '{"MAZBLG":35,"DGVNHF":25}', role: message, wrap_on: never}
     type: ColumnPanel
-  - layout_properties: {grid_position: 'ZKABWJ,WYBZBT'}
-    name: label_3
-    properties: {align: center, bold: true, font_size: 15, underline: true}
-    type: Label
   - components:
     - event_bindings: {change: text_box_1_change, pressed_enter: text_box_1_pressed_enter}
       layout_properties: {grid_position: 'FIGXOP,ZYNGBD'}
