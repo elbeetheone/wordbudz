@@ -285,13 +285,13 @@ def message(user, name, email, message):
 
 
 @anvil.server.callable
-def seenonym(user, user_words, the_words):
+def seenonym(user, user_words, foo, route):
   url = "https://YOUR-USERNAME-text-similarity.hf.space/api/predict"
 
   anvil.http.request(
     url,
     method="POST",
     json={
-      "data": [user, user_words, the_words]
+      "data": [user, user_words, foo, route]
     }
   )
