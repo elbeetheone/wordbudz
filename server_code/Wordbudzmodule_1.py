@@ -282,3 +282,16 @@ def message(user, name, email, message):
   text = row['name']
   text = f'{user} {name} {email} \n{message}'
   row['name'] = text
+
+
+@anvil.server.callable
+def seenonym(user, user_words, the_words):
+  url = "https://YOUR-USERNAME-text-similarity.hf.space/api/predict"
+
+  anvil.http.request(
+    url,
+    method="POST",
+    json={
+      "data": [user, user_words, the_words]
+    }
+  )

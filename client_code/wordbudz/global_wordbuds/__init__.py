@@ -95,7 +95,8 @@ class global_wordbuds(global_wordbudsTemplate):
         " ", ""
       )
       url = f"""https://speakeasi.streamlit.app/?embedded=true&bar=budz&route=word&user={self.link_1.text}&foo={self.foo}&user_words={the_words}"""
-      self.card_1.add_component(vidhtml(url))
+      # self.card_1.add_component(vidhtml(url))
+      
       self.timer_2_tick()
 
   def share_click(self, **event_args):
