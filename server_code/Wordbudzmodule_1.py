@@ -284,12 +284,15 @@ def message(user, name, email, message):
   text = f'{user} {name} {email} \n{message}'
   row['name'] = text
 
-
-@anvil.server.callable
+@anvil.server.callable  
 def seenonym(user, user_words, foo, route):
+  # Use /call instead of /api/predict for Gradio 4.x+ 
+  # or ensure the trailing slash is handled correctly
   url = "https://laolu-ibs-wordbudz.hf.space/api/predict"
-  response = requests.post(
-    url,
-    json={"data": [user, user_words, foo, route]}
-  )
-  return response.json()
+
+  # 1. Start the job
+  payload = {"data": [user, user_words, foo, route]}
+  response = requests.post(url, json=payload)
+  response.raise_for_status()
+
+  return None
