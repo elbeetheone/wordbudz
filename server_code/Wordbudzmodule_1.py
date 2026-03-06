@@ -8,6 +8,7 @@ import anvil.users
 import anvil.media
 import anvil.http
 from anvil.server import http_endpoint, request
+import requests
 import random
 from datetime import timedelta, date
 from anvil.google.drive import app_files
@@ -286,12 +287,9 @@ def message(user, name, email, message):
 
 @anvil.server.callable
 def seenonym(user, user_words, foo, route):
-  url = "https://YOUR-USERNAME-text-similarity.hf.space/api/predict"
-
-  anvil.http.request(
+  url = "https://laolu-ibs-wordbudz.hf.space/api/predict"
+  response = requests.post(
     url,
-    method="POST",
-    json={
-      "data": [user, user_words, foo, route]
-    }
+    json={"data": [user, user_words, foo, route]}
   )
+  return response.json()
