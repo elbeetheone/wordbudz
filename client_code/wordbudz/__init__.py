@@ -10,18 +10,25 @@ from ..avgs import avgs
 from ..ratings import ratings
 from .vidhtml import vidhtml
 
+_cached_data = {}
 
 class wordbudz(wordbudzTemplate):
   def __init__(self, **properties):
-    # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.timer_1.interval = 0
-    self.load = anvil.server.call('test_cookie')
-    self.ratings = anvil.server.call("test_ratings", 'word')
+
+    # Check cache first
+    today = str(date.today())
+    if _cached_data.get('date') != today:
+      # Cache expired or doesn't exist, fetch fresh data
+      _cached_data['load'] = anvil.server.call('test_cookie')
+      _cached_data['ratings'] = anvil.server.call("test_ratings", 'word')
+      _cached_data['date'] = today
+
+    # Use cached data
+    self.load = _cached_data['load']
+    self.ratings = _cached_data['ratings']
     self.date.text = str(date.today().strftime("%a, %b %d."))
-    if self.ratings[0]['Played_time'] == 0:
-      self.how_to.scroll_into_view()
-      # self.timer_2_tick()
     self.label_1.text = f'👋 {self.load}'
 
 
