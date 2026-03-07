@@ -289,3 +289,15 @@ def seenonym(user, user_words, foo, route):
   client = Client("https://laolu-ibs-wordbudz.hf.space/")
   result = client.predict(user, route, user_words, foo, api_name="/predict")
   return result
+
+@anvil.server.callable
+def is_streamlit_active(timeout=5):
+  try:
+    response = requests.get(
+      "https://speakeasi.streamlit.app/?health=check",
+      timeout=timeout
+    )
+    # Just check if request succeeded
+    return response.status_code == 200
+  except:
+    return False
