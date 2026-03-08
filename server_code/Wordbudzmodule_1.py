@@ -112,7 +112,7 @@ def daily_cancel():
           q.ilike('%9%')
       )))
   for _ in results:
-    if _['finishes'] == date.today() - timedelta(days=1):
+    if _['finishes'] >= date.today() - timedelta(days=1):
       db = app_files.team_info
       ws = db["Sheet1"] #keeping infromation of the leagues on a spread sheet incase info is needed
       row = ws.add_row(Admin=_['admin'], Rankings=_['ranked_table'])
@@ -301,3 +301,25 @@ def is_streamlit_active(timeout=5):
     return response.status_code == 200
   except:
     return False
+
+@anvil.server.callable
+def test_function():
+
+  results = app_tables.users.search(q.any_of(username=q.any_of(
+    q.ilike('%0%'),
+    q.ilike('%1%'),
+    q.ilike('%2%'),
+    q.ilike('%3%'),
+    q.ilike('%4%'),
+    q.ilike('%5%'),
+    q.ilike('%6%'),
+    q.ilike('%7%'),
+    q.ilike('%8%'),
+    q.ilike('%9%')
+  )))
+  for _ in results:
+    if _['finishes'] <= date.today() - timedelta(days=1):
+      # db = app_files.team_info
+      # ws = db["Sheet1"] #keeping infromation of the leagues on a spread sheet incase info is needed
+      # row = ws.add_row(Admin=_['admin'], Rankings=_['ranked_table'])
+      _.delete()
