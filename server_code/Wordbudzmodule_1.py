@@ -11,7 +11,7 @@ import requests
 import random
 from datetime import timedelta, date
 from anvil.google.drive import app_files
-from gradio_client import Client
+# from gradio_client import Client
 
 
 @anvil.server.http_endpoint('/budzscore', methods=["POST"], authenticate_users=False)
