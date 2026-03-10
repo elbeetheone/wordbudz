@@ -11,7 +11,7 @@ import requests
 import random
 from datetime import timedelta, date
 from anvil.google.drive import app_files
-# from gradio_client import Client
+
 
 
 @anvil.server.http_endpoint('/budzscore', methods=["POST"], authenticate_users=False)
@@ -286,9 +286,9 @@ def message(user, name, email, message):
 
 @anvil.server.callable
 def seenonym(user, user_words, foo, route):
-  client = Client("https://laolu-ibs-wordbudz.hf.space/")
-  result = client.predict(user, route, user_words, foo, api_name="/predict")
-  return result
+  resp = requests.post("https://cold-twin-save.anvil.app/_/api/seenonym", json={'user': user,
+                                                                                      'user_words':user_words,'foo':foo, 'route':route})
+  
 
 @anvil.server.callable
 def is_streamlit_active(timeout=5):
