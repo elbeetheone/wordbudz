@@ -170,7 +170,7 @@ native_deps:
 package_name: wordbudz
 runtime_options:
   client_version: '3'
-  server_spec: null
+  server_spec: {}
   server_spec_disabled: {base: python310-minimal, requirements: ''}
   server_version: python3-sandbox
   version: 2

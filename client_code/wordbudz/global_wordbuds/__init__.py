@@ -94,12 +94,12 @@ class global_wordbuds(global_wordbudsTemplate):
       the_words = ", ".join([item["synonym"] for item in self.messages]).replace(
         " ", ""
       )
-      if anvil.server.call_s('is_streamlit_active'):
+      try:
+        anvil.server.call('seenonym', self.link_1.text, the_words, self.foo, 'word')
+        self.timer_2_tick()
+      except Exception as e:
         url = f"""https://speakeasi.streamlit.app/?embedded=true&bar=budz&route=word&user={self.link_1.text}&foo={self.foo}&user_words={the_words}"""
         self.card_1.add_component(vidhtml(url))
-        self.timer_2_tick()
-      else:
-        anvil.server.call('seenonym', self.link_1.text, the_words, self.foo, 'word')
         self.timer_2_tick()
       
 
@@ -132,6 +132,7 @@ Download & Play @ https://rb.gy/api4sx'''
         # else:
         #   open_form('gameplay')
     except Exception as e:
+      print(e)
       pass
 
   def link_1_click(self, **event_args):

@@ -299,7 +299,9 @@ def is_streamlit_active(timeout=5):
     )
     # Just check if request succeeded
     return response.status_code == 200
-  except:
+    print('active')
+  except Exception as e:
+    print(e)
     return False
 
 @anvil.server.callable
