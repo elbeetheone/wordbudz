@@ -157,6 +157,10 @@ class merch(merchTemplate):
     """This method is called when the button is clicked"""
     alert(item_status(self.link_1.text), large=True)
 
+  def text_box_1_pressed_enter(self, **event_args):
+    """This method is called when the user presses Enter in this text box"""
+    pass
+
 
 
 
