@@ -96,12 +96,19 @@ class global_wordbuds(global_wordbudsTemplate):
       )
       try:
         anvil.server.call('seenonym', self.link_1.text, the_words, self.foo, 'word')
-        self.timer_2_tick()
-      except Exception as e:
-        url = f"""https://speakeasi.streamlit.app/?embedded=true&bar=budz&route=word&user={self.link_1.text}&foo={self.foo}&user_words={the_words}"""
-        self.card_1.add_component(vidhtml(url))
-        self.timer_2_tick()
+      except:
+        self.fallback_streamlit(self.link_1.text, self.foo, the_words)
+
+      self.timer_2_tick()
+
       
+
+  def fallback_streamlit(self, user, foo, words):
+    url = (
+      "https://speakeasi.streamlit.app/?embedded=true"
+      f"&bar=budz&route=word&user={user}&foo={foo}&user_words={words}"
+    )
+    self.card_1.add_component(vidhtml(url))
 
   def share_click(self, **event_args):
     """This method is called when the link is clicked"""
