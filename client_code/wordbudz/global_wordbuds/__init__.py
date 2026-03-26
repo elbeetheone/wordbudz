@@ -96,7 +96,8 @@ class global_wordbuds(global_wordbudsTemplate):
       )
       try:
         anvil.server.call('seenonym', self.link_1.text, the_words, self.foo, 'word')
-      except:
+      except Exception as e:
+        print(e)
         self.fallback_streamlit(self.link_1.text, self.foo, the_words)
 
       self.timer_2_tick()
