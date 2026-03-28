@@ -106,8 +106,7 @@ class global_wordbuds(global_wordbudsTemplate):
 
   def fallback_streamlit(self, user, foo, words):
     url = (
-      "https://speakeasi.streamlit.app/?embedded=true"
-      f"&bar=budz&route=word&user={user}&foo={foo}&user_words={words}"
+      f"https://speakeasi.streamlit.app/?embedded=true&bar=budz&route=word&user={user}&foo={foo}&user_words={words}"
     )
     self.card_1.add_component(vidhtml(url))
 
