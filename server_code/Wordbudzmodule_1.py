@@ -286,8 +286,11 @@ def message(user, name, email, message):
 
 @anvil.server.callable
 def seenonym(user, user_words, foo, route):
-  resp = requests.post("https://cold-twin-save.anvil.app/_/api/seenonym", json={'user': user,
+  try:
+    requests.post("https://cold-twin-save.anvil.app/_/api/seenonym", json={'user': user,
                                                                                       'user_words':user_words,'foo':foo, 'route':route})
+  except Exception as e:
+    raise Exception(f"seenonym failed: {e}")
   
 
 @anvil.server.callable
