@@ -1,43 +1,6 @@
 allow_embedding: true
 correct_dependency_ids: {}
 db_schema:
-  curated_q:
-    client: none
-    columns:
-    - admin_ui: {order: -1, width: 200}
-      name: User
-      type: string
-    - admin_ui: {width: 200}
-      name: Position
-      type: number
-    - admin_ui: {order: 1, width: 200}
-      name: question_list
-      type: simpleObject
-    - admin_ui: {width: 200}
-      name: recordings
-      type: media
-    - admin_ui: {order: 2, width: 200}
-      name: job_title
-      type: string
-    server: full
-    title: curated_q
-  questions:
-    client: none
-    columns:
-    - admin_ui: {order: 0, width: 200}
-      name: unique_key
-      type: string
-    - admin_ui: {order: 1, width: 200}
-      name: question_list
-      type: simpleObject
-    - admin_ui: {order: 2, width: 200}
-      name: recordings
-      type: media
-    - admin_ui: {order: 3, width: 200}
-      name: position
-      type: number
-    server: full
-    title: Questions
   users:
     client: none
     columns:
