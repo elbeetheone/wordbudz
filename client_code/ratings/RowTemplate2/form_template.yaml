@@ -17,5 +17,16 @@ components:
   name: label_3
   properties: {align: left, foreground: 'theme:Primary 500'}
   type: Label
+- layout_properties: {}
+  name: label_23
+  properties:
+    background: theme:Gray 200
+    font_size: 0
+    spacing:
+      padding: [1, null, 0, null]
+    spacing_above: none
+    spacing_below: none
+    text: ''
+  type: Label
 container: {type: DataRowPanel}
 is_package: true
