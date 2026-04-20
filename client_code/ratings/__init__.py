@@ -1,6 +1,7 @@
 from ._anvil_designer import ratingsTemplate
 from anvil import *
 import anvil.server
+from anvil import js
 
 
 
@@ -43,3 +44,6 @@ class ratings(ratingsTemplate):
     self.data_grid_1.rows_per_page = 10
     self.rank.text = f"Rank: {anvil.server.call('get_rank_pos', self.route, self.label_5.text, 'daily')}"
 
+
+  def is_mobile(self):
+    return js.window.innerWidth < 768

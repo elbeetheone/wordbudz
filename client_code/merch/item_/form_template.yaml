@@ -35,8 +35,8 @@ components:
   properties:
     background: ''
     columns:
-    - {data_key: column_1, expand: false, id: JKSDUP, title: Item, width: 183}
-    - {data_key: column_2, expand: false, id: VJQQOR, title: Price, width: 118}
+    - {data_key: column_1, expand: false, id: JKSDUP, title: Item}
+    - {data_key: column_2, expand: false, id: VJQQOR, title: Price, width: 503}
     - {data_key: column_1, id: FNDNPO, title: ''}
     foreground: theme:Primary 500
     role: message

@@ -17,6 +17,17 @@ components:
   name: label_3
   properties: {foreground: 'theme:Primary 500'}
   type: Label
+- layout_properties: {grid_position: 'EWYTJM,ALNEYX PVLPVM,HQTKYO'}
+  name: label_23
+  properties:
+    background: theme:Gray 200
+    font_size: 0
+    spacing:
+      padding: [1, null, 0, null]
+    spacing_above: none
+    spacing_below: none
+    text: ''
+  type: Label
 - data_bindings:
   - {code: 'self.item[''status'']', property: text, writeback: false}
   layout_properties: {grid_position: 'EWYTJM,SRDFIY'}
