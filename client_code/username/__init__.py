@@ -10,6 +10,11 @@ class username(usernameTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    self.route = get_url_hash()
+    if self.route == 'info':
+      open_form('wordbudz.Word_info')
+      return
+    
     self.load = anvil.server.call('test_cookie')
     
     if self.load != 'not found':
