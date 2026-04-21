@@ -78,7 +78,7 @@ class global_wordbuds(global_wordbudsTemplate):
       time.sleep(1)
 
     self.recognition.start()
-    self.countdown.text = "Speak"
+    self.countdown.text = "Speak 💬"
     self.record.icon = "fa:stop"
     self.record.enabled = False
     time.sleep(5)
