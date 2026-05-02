@@ -20,8 +20,8 @@ class merch(merchTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    data = get_open_form().user
-    self.link_1.text = anvil.server.call_s('test_cookie')
+    data = GlobalState.get_user_info()
+    self.link_1.text = data['user']
     self.text_box_1.placeholder = self.link_1.text
     self.card_1.add_component(white_tee(self.link_1.text, 'Awesome'))
     self.selected = 'Small'
@@ -30,7 +30,7 @@ class merch(merchTemplate):
     self.button_3_copy.font_size = 18
     self.text1 = self.text_box_1.placeholder
     self.text2 = 'Awesome'
-    self.prices = anvil.server.call('get_price')
+    self.prices = {"black": 21.99, "white": 19.99}
     self.label_3.text = f"USD {self.prices['white']}"
 
     # Any code you write here will run before the form opens.
