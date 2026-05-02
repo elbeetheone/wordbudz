@@ -17,7 +17,7 @@ class RowTemplate6(RowTemplate6Template):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    self.user = anvil.server.call('test_cookie')
+    self.user = get_open_form().link_1.text
     # if self.label_3.text == 0:
     #   self.trash_click()
 

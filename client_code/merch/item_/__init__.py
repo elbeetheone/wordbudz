@@ -20,7 +20,7 @@ class item_(item_Template):
     self.user = user
     self.label_1.text = 'Total: $' + "%.2f" % (sum([item["price"] * item['num_item'] for item in item_list if "price" in item]))
     self.repeating_panel_1.items = item_list
-    self.address.text = anvil.server.call_s('get_addy')
+    # self.address.text = anvil.server.call_s('get_addy')
     
 
   def reload(self, **event_args):
