@@ -95,35 +95,36 @@ def len_league(route):
 @anvil.server.background_task
 def daily_cancel():
   row = app_tables.users.get (username='word')
+  attach_pos(row)
   row['ranked_table'] = []
   nu_list = row['today_words']
   nu_list.pop(0)
   row['today_words'] = nu_list
 
-  results = app_tables.users.search(q.any_of(username=q.any_of(
-          q.ilike('%0%'),
-          q.ilike('%1%'),
-          q.ilike('%2%'),
-          q.ilike('%3%'),
-          q.ilike('%4%'),
-          q.ilike('%5%'),
-          q.ilike('%6%'),
-          q.ilike('%7%'),
-          q.ilike('%8%'),
-          q.ilike('%9%')
-      )))
-  for _ in results:
-    if _['finishes'] >= date.today() - timedelta(days=1):
-      db = app_files.team_info
-      ws = db["Sheet1"] #keeping infromation of the leagues on a spread sheet incase info is needed
-      row = ws.add_row(Admin=_['admin'], Rankings=_['ranked_table'])
-      _.delete()
+  # results = app_tables.users.search(q.any_of(username=q.any_of(
+  #         q.ilike('%0%'),
+  #         q.ilike('%1%'),
+  #         q.ilike('%2%'),
+  #         q.ilike('%3%'),
+  #         q.ilike('%4%'),
+  #         q.ilike('%5%'),
+  #         q.ilike('%6%'),
+  #         q.ilike('%7%'),
+  #         q.ilike('%8%'),
+  #         q.ilike('%9%')
+  #     )))
+  # for _ in results:
+  #   if _['finishes'] >= date.today() - timedelta(days=1):
+  #     db = app_files.team_info
+  #     ws = db["Sheet1"] #keeping infromation of the leagues on a spread sheet incase info is needed
+  #     row = ws.add_row(Admin=_['admin'], Rankings=_['ranked_table'])
+  #     _.delete()
       
-  results = app_tables.users.search(q.any_of(username=q.ilike('%League')))
-  for _ in results:
-    if _['finishes'] == date.today() - timedelta(days=1):
-      #a day after league ends, clear so that a user can trigger new words
-      _['today_words'] = []
+  # results = app_tables.users.search(q.any_of(username=q.ilike('%League')))
+  # for _ in results:
+  #   if _['finishes'] == date.today() - timedelta(days=1):
+  #     #a day after league ends, clear so that a user can trigger new words
+  #     _['today_words'] = []
       
 
 @anvil.server.callable
@@ -189,8 +190,7 @@ def test_ratings(route):
 
 
 @anvil.server.background_task
-def attach_pos(route, user):
-  row = get_user_row(route)
+def attach_pos(row):
   data = row['user_words']
 
   def rank_users(score_key, extra_fields=None):
