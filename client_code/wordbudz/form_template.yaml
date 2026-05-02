@@ -138,7 +138,7 @@ components:
     event_bindings: {click: link_1_copy_2_click}
     layout_properties: {grid_position: 'UQPCVZ,NULCYV'}
     name: link_1_copy_2
-    properties: {align: center, background: '#A020F0', bold: true, col_widths: '{}', font_size: 30, foreground: '#E0F5FF', icon: '', role: message, spacing_below: medium, text: '', visible: false, wrap_on: never}
+    properties: {align: center, background: '#A020F0', bold: true, col_widths: '{}', font_size: 30, foreground: '#E0F5FF', icon: '', role: message, spacing_below: medium, text: '', tooltip: Coming Soon, visible: false, wrap_on: never}
     type: Link
   - components:
     - components:

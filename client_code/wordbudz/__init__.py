@@ -16,6 +16,7 @@ from .. import GlobalState
 class wordbudz(wordbudzTemplate):
   def __init__(self, **properties):
     self.init_components(**properties)
+    # self.link_1_copy_2.enabled = False
     self.timer_1.interval = 0
     data = GlobalState.get_user_info()
 
