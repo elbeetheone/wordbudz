@@ -4,18 +4,19 @@ import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 import anvil.server
 from ..wordbudz import wordbudz
+from .. import GlobalState
 
 
 class username(usernameTemplate):
   def __init__(self, **properties):
-    # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    
-    self.load = anvil.server.call('test_cookie')
-    
-    if self.load != 'not found':
-      # self.clear()
-      # self.add_component(wordbudz(), full_width_row=True)
+
+    # 1. Check if we have a valid, current user in the cache
+    data = GlobalState.get_user_info()
+    self.user = data['user']
+
+    # 4. UI logic based on result
+    if self.user != 'not found':
       open_form('wordbudz')
 
 

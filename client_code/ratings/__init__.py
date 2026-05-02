@@ -2,48 +2,17 @@ from ._anvil_designer import ratingsTemplate
 from anvil import *
 import anvil.server
 from anvil import js
+from .. import GlobalState
 
 
 
 class ratings(ratingsTemplate):
-  def __init__(self, route, **properties):
-    # Set Form properties and Data Bindings.
+  def __init__(self, **properties):
     self.init_components(**properties)
-    self.route = route
-    self.label_5.text = anvil.server.call_s('test_cookie')
-    self.repeating_panel_1.items = anvil.server.call_s('get_rank', route, 'daily')
-    self.data_grid_1.rows_per_page = 10
-    self.rank.text = f"Rank: {anvil.server.call('get_rank_pos', route, self.label_5.text, 'daily')}"
-
-
-    # Any code you write here will run before the form opens.
-
-  def avg_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    self.avg.font_size = 22
-    self.daily.font_size = 14
-    self.daily.enabled = True
-    self.data_grid_1_copy.visible = True
-    self.data_grid_1.visible = False
-    self.avg.enabled = False
-    self.repeating_panel_1_copy.items = anvil.server.call_s('get_rank', self.route, 'avg')
+    data = GlobalState.get_user_info()
+    self.label_5.text = data['user']
+    self.repeating_panel_1_copy.items = data['ratings']
     self.data_grid_1_copy.rows_per_page = 10
-    self.rank.text = f"Rank: {anvil.server.call('get_rank_pos', self.route, self.label_5.text, 'avg')}"
+    user_rank = next((item['rank'] for item in data['ratings'] if item['user'] == self.label_5.text), "N/A")
+    self.rank.text = f"Rank: {user_rank}"
 
-    
-
-  def daily_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    self.avg.font_size = 14
-    self.daily.font_size = 22
-    self.daily.enabled = False
-    self.data_grid_1_copy.visible = False
-    self.data_grid_1.visible = True
-    self.avg.enabled = True
-    self.repeating_panel_1.items = anvil.server.call_s('get_rank', self.route, 'daily')
-    self.data_grid_1.rows_per_page = 10
-    self.rank.text = f"Rank: {anvil.server.call('get_rank_pos', self.route, self.label_5.text, 'daily')}"
-
-
-  def is_mobile(self):
-    return js.window.innerWidth < 768

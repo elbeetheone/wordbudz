@@ -47,7 +47,8 @@ unique_ids:
     wordbudz.prices.ItemTemplate1: '1725531800171340809427999.75665'
     wordbudz.vidhtml: '172311572009334872264815.20356'
     wordbudz.word_video: '1720527539862716557488731.1147'
-  modules: {}
+  modules:
+    GlobalState: '1777737099098737387700129.2858'
   scripts: {}
   server_modules:
     Wordbudzmodule_1: '1706624885756612064993231.823'

@@ -9,26 +9,21 @@ from anvil.js.window import location
 from ..avgs import avgs
 from ..ratings import ratings
 from .vidhtml import vidhtml
+from .. import GlobalState
 
-_cached_data = {}
+
 
 class wordbudz(wordbudzTemplate):
   def __init__(self, **properties):
     self.init_components(**properties)
     self.timer_1.interval = 0
+    data = GlobalState.get_user_info()
 
-    # Check cache first
-    today = str(date.today())
-    if _cached_data.get('date') != today:
-      # Cache expired or doesn't exist, fetch fresh data
-      _cached_data['load'] = anvil.server.call('test_cookie')
-      _cached_data['ratings'] = anvil.server.call("test_ratings", 'word')
-      _cached_data['date'] = today
 
     # Use cached data
-    self.load = _cached_data['load']
-    self.ratings = _cached_data['ratings']
-    self.date.text = str(date.today().strftime("%a, %b %d."))
+    self.load = data['user']
+    # self.ratings = data['ratings']
+    self.date.text = data['date']
     self.label_1.text = f'👋 {self.load}'
 
 
@@ -38,24 +33,19 @@ class wordbudz(wordbudzTemplate):
 
   def stats_click(self, **event_args):
     """This method is called when the link is clicked"""
-    alert(avgs('word'), large=True)
+    alert(avgs(), large=True)
 
   def daily_game_click(self, **event_args):
     """This method is called when the link is clicked"""
     try:
-      if anvil.server.call('len_league', 'word') == 0:
-        url = '''https://speakeasi.streamlit.app/?embedded=true&bar=paste&route=word&foo=100'''
-        self.card_1.add_component(vidhtml(url))
-        self.timer_1_tick()
-      else:
-        open_form('wordbudz.global_wordbuds')
+      open_form('wordbudz.global_wordbuds')
     except Exception as e:
       print(e)
       # pass
 
   def ranking_click(self, **event_args):
     """This method is called when the link is clicked"""
-    alert(ratings('word'), large=True)
+    alert(ratings(), large=True)
 
   def play_click(self, **event_args):
     """This method is called when the button is clicked"""

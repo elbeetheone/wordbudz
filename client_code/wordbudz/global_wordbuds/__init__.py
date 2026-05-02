@@ -5,6 +5,7 @@ import time
 import anvil.js.window as window
 from ..vidhtml import vidhtml
 from datetime import datetime, timezone
+from ... import GlobalState
 
 
 SpeechRecognition = window.get("SpeechRecognition") or window.get(
@@ -20,15 +21,17 @@ class global_wordbuds(global_wordbudsTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    self.link_1.text = anvil.server.call_s("test_cookie")
+    data = GlobalState.get_user_info()
+    self.link_1.text = data['user']
+    self.data = data['user_data']
+    self.words = data['words'] or []
     self.timer_2.interval = 0
 
     self.stage = str(datetime.now(timezone.utc))[:10] #universal time across zones
 
-    if self.stage != anvil.server.call_s("check_playtime", self.link_1.text, 'word'):
-      print('here')
+    if self.stage != self.check_playtime():
       #if today's date is not the last played date, upload new game
-      self.user_words = anvil.server.call_s("get_words", 'word')[0]
+      self.user_words = self.words
       self.foo = ", ".join(self.user_words).replace(" ", "")
       self.messages = []
       self.repeating_panel.items = self.messages
@@ -58,11 +61,8 @@ class global_wordbuds(global_wordbudsTemplate):
       self.recognition = recognition
 
 
-    if self.stage == anvil.server.call_s("check_playtime", self.link_1.text, 'word'):
-      # important logic. If today's date and last played are the same, show below
-      self.repeating_panel.items = anvil.server.call_s("check_words", self.link_1.text, 'word')
-      self.record.visible, self.countdown.visible, self.card_1_copy.visible = False,False,True
-      self.total.text = "%.2f" % (sum([item["scores"] for item in self.repeating_panel.items if "scores" in item]))
+    else:
+      self.fail_safe()
 
   def record_click(self, **event_args):
     """This method is called when the button is clicked"""
@@ -95,10 +95,10 @@ class global_wordbuds(global_wordbudsTemplate):
         " ", ""
       )
       try:
-        anvil.server.call('seenonym', self.link_1.text, the_words, self.foo, 'word')
+        self.fallback_streamlit(self.username, self.foo, the_words)
       except Exception as e:
         print(e)
-        self.fallback_streamlit(self.link_1.text, self.foo, the_words)
+        anvil.server.call('seenonym', self.username, the_words, self.foo, 'word')
 
       self.timer_2_tick()
 
@@ -128,12 +128,13 @@ Download & Play @ https://rb.gy/api4sx'''
 
   def timer_2_tick(self, **event_args):
     """This method is called Every [interval] seconds. Does not trigger if [interval] is 0."""
-    self.timer_2.interval = 1
+    self.timer_2.interval = 3
 
     try:
-      if self.stage == anvil.server.call("check_playtime", self.link_1.text, 'word'):
+      playtime, last_item = anvil.server.call("check_playtime", self.username, 'word')
+      if self.stage == playtime:
         self.timer_2.interval = 0
-        anvil.server.call('next_stage', self.link_1.text, [{"Avg_rating": 0,"Played_time": 0}], 'word')
+        GlobalState.update_cache(username=self.username, user_data=last_item)
         open_form("wordbudz.global_wordbuds")
         # else:
         #   open_form('gameplay')
@@ -145,3 +146,27 @@ Download & Play @ https://rb.gy/api4sx'''
     """This method is called when the link is clicked"""
     open_form('wordbudz')
 
+  def check_playtime(self):
+    user_words = self.data
+
+    # Loop backwards through the list to find the first dictionary with last_played
+    for item in reversed(user_words):
+      if isinstance(item, dict) and "last_played" in item:
+        return item["last_played"]
+
+    return 0  # Return 0 if no valid last_played found
+
+
+
+  def check_words(self):
+    words = self.data.copy()
+    words.pop(-1)
+    return words
+
+  def fail_safe(self):
+    items = self.check_words()
+    self.repeating_panel.items = items
+    self.record.visible, self.countdown.visible, self.card_1_copy.visible = False, False, True
+    # Calculate total from the cached items
+    self.total.text = "%.2f" % (sum([item["scores"] for item in items if "scores" in item]))
+    return

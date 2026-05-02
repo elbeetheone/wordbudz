@@ -152,27 +152,96 @@ def next_stage(user, ratings, route):
 
 @anvil.server.callable
 def generate_username(username, email):
-    row = app_tables.users.get (username='admin')
-    if not username or not email:
-      return 'void'
-    if any(char in username for char in '#$&@-*%$!+=') or len(username) < 4 or '@' not in email:
-      return 'void'
-    if username in row['user_words'].keys():
-      return 'void'
-    if email in row['user_words'].values():
-      return 'void'
-    else:
-      anvil.server.cookies.local.set(300, name=username, ratings=[{"Avg_rating": 0,"Played_time": 0}], daily_ratings=[{"Avg_rating": 0,"Played_time": 0}],
-                                     anchor_ratings =[{"Avg_rating": 0,"Played_time": 0}], speecheazi_ratings=[{"Avg_rating": 0,"Played_time": 0}])
+  row = app_tables.users.get(username='admin')
+  user_map = row['user_words'] 
 
-    nu_dict = row['user_words']
-    nu_dict[username] = email
-    row['user_words'] = nu_dict    
+  def set_user_cookie():
+    default_stats = [{"Avg_rating": 0, "Played_time": 0}]
+    anvil.server.cookies.local.set(
+      300, 
+      name=username, 
+      ratings=default_stats, 
+      daily_ratings=default_stats,
+      anchor_ratings=default_stats, 
+      speecheazi_ratings=default_stats
+    )
+
+    # 1. Validation: Block empty or malformed inputs
+  forbidden_chars = '#$&@-*%$!+='
+  if not username or not email or len(username) < 4 or '@' not in email:
+    return 'void'
+  if any(char in username for char in forbidden_chars):
+    return 'void'
+
+    # 2. Existing User Case: If both match exactly, just log them in
+  if user_map.get(username) == email:
+    set_user_cookie()
+    return 'success'
+
+    # 3. Conflict Case: If username exists (with diff email) or email exists (with diff username)
+  if username in user_map or email in user_map.values():
+    return 'void'
+
+    # 4. New User Case: Register them
+  set_user_cookie()
+
+  # Update the dictionary in the Data Table
+  # Note: We create a copy to ensure Anvil detects the change
+  new_map = dict(user_map)
+  new_map[username] = email
+  row['user_words'] = new_map
+
+  return 'success'  
 
 @anvil.server.callable
 def test_cookie():
-  return anvil.server.cookies.local.get('name', 'not found')
-  # return anvil.server.cookies.local.get('310312_ratings')
+  """
+    Robust user session handler with graceful degradation.
+    Returns: (user, ratings, words, user_data) or 'not found' state
+    """
+  default_response = ('not found', None, None, None)
+
+  try:
+    # 1. Check cookie - fail fast if missing
+    user = anvil.server.cookies.local.get('name')
+    if not user or user == 'not found':
+      return default_response
+
+      # 2. Fetch user data with fallback handling
+    try:
+      row = get_user_row('word')
+    except (LookupError, anvil.tables.NoSuchColumnError):
+      # DB lookup failed - log but don't crash
+      print(f"[ERROR] User row lookup failed for: {user}")
+      return default_response
+
+      # 3. Extract data with safe defaults
+    ratings = row['avg'] if row['avg'] is not None else []
+
+    # Handle today_words safely
+    today_words_raw = row['today_words']
+    words = today_words_raw[0] if today_words_raw else None
+
+    # Get user-specific data
+    all_user_data = row['user_words'] or {}
+    user_data = all_user_data.get(user, {})
+
+    # 4. Validate critical data before returning
+    if ratings is None and words is None and not user_data:
+      # User exists but has no data - possible new user
+      print(f"[WARN] User '{user}' has empty data profile")
+
+    return user, ratings, words, user_data
+
+  except anvil.tables.TableError as e:
+    # Database connection issues
+    print(f"[ERROR] Database error in test_cookie: {e}")
+    return default_response
+
+  except Exception as e:
+    # Catch-all for unexpected errors
+    print(f"[CRITICAL] Unexpected error in test_cookie: {type(e).__name__} - {e}")
+    return default_response
 
 @anvil.server.callable
 def test_ratings(route):

@@ -13,12 +13,14 @@ from .black_tee import black_tee
 from .item_ import item_
 from .item_status import item_status
 import random
+from .. import GlobalState
 
 
 class merch(merchTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    data = get_open_form().user
     self.link_1.text = anvil.server.call_s('test_cookie')
     self.text_box_1.placeholder = self.link_1.text
     self.card_1.add_component(white_tee(self.link_1.text, 'Awesome'))
