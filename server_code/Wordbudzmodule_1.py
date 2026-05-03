@@ -289,11 +289,11 @@ def attach_pos(row):
       ranked.append(entry)
     return ranked
 
-  if 'league' in route.lower() or route.isdigit():
-    row['ranked_table'] = rank_users('total_score', extra_fields=['Played_time'])
-  else:
-    row['ranked_table'] = rank_users('current_score', extra_fields=['Played_time'])
-    row['avg'] = rank_users('avg_score')
+  # if 'league' in route.lower() or route.isdigit():
+  #   row['ranked_table'] = rank_users('total_score', extra_fields=['Played_time'])
+  # else:
+  row['ranked_table'] = rank_users('current_score', extra_fields=['Played_time'])
+  row['avg'] = rank_users('avg_score')
 
 
     

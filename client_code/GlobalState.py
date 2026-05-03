@@ -5,14 +5,8 @@ from anvil.google.drive import app_files
 import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
+from anvil.tables import app_tables
 from datetime import date
-# This is a module.
-# You can define variables and functions here, and use them from any form. For example, in a top-level form:
-#
-#    from .. import Module1
-#
-#    Module1.say_hello()
-#
 
 
 _cached_data = {}
@@ -20,30 +14,40 @@ _cached_data = {}
 def get_user_info():
   today = date.today()
 
-
   if _cached_data.get('date') == today and _cached_data.get('user') not in [None, 'not found']:
     return _cached_data
 
-  try:
-    results = anvil.server.call('test_cookie')
-    user_val = results[0]
+  attempts = 0
+  max_attempts = 3
 
-    if user_val != 'not found':
-      _cached_data.update({
-        'user': user_val,
-        'ratings': results[1] or [],  # Default to empty list
-        'words': results[2],
-        'user_data': results[3] or [],  # Default 
-        'date': today
-      })
-      return _cached_data
+  while attempts < max_attempts:
+    try:
+      results = anvil.server.call('test_cookie')
+      user_val = results[0]
 
-  except anvil.server.AnvilError as e:
-    print(f"Server call failed: {e}")
-  except Exception as e:
-    print(f"Unexpected client error: {e}")
+      if user_val != 'not found':
+        _cached_data.update({
+          'user': user_val,
+          'ratings': results[1] or [],
+          'words': results[2],
+          'user_data': results[3] or [],
+          'date': today
+        })
+        return _cached_data
 
-    # Fallback for any failure path
+        # If user_val is 'not found', we don't need to retry
+      break
+
+    except Exception as e:
+      attempts += 1
+      print(f"Attempt {attempts} failed: {e}")
+      if attempts < max_attempts:
+        import time
+        time.sleep(1)  # Brief pause before retrying
+      else:
+        print("Max attempts reached for test_cookie.")
+
+    # Fallback if loop finishes without returning or finding a user
   _cached_data['user'] = 'not found'
   return _cached_data
 
