@@ -22,7 +22,8 @@ class global_wordbuds(global_wordbudsTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     data = GlobalState.get_user_info()
-    self.link_1.text = data['user']
+    self.username = data['user']
+    self.link_1.text = self.username
     self.data = data['user_data']
     self.words = data['words'] or []
     self.timer_2.interval = 0

@@ -46,7 +46,7 @@ def budzscore():
   row['user_words'] = nu_dict
 
   print('200 OK')
-  task = anvil.server.launch_background_task('attach_pos', route, user)
+  # task = anvil.server.launch_background_task('attach_pos', route, user)
   
 def calculate_new_average(current_score, average_rating, no_of_times_played):
     new_average_rating = ((average_rating * no_of_times_played) + current_score) / (no_of_times_played + 1)
